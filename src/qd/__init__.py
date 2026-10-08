@@ -1,0 +1,2 @@
+﻿"""src.qd package initialization."""
+

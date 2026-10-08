@@ -1,0 +1,2 @@
+﻿"""src.novelty package initialization."""
+

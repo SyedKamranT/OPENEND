@@ -1,0 +1,29 @@
+{
+  "first_fit": {
+    "total_bins": 1493,
+    "family_bins": {
+      "uniform": 408,
+      "bimodal": 413,
+      "paired": 409,
+      "triplets": 263
+    }
+  },
+  "best_fit": {
+    "total_bins": 1476,
+    "family_bins": {
+      "uniform": 403,
+      "bimodal": 406,
+      "paired": 404,
+      "triplets": 263
+    }
+  },
+  "worst_fit": {
+    "total_bins": 1567,
+    "family_bins": {
+      "uniform": 432,
+      "bimodal": 427,
+      "paired": 435,
+      "triplets": 273
+    }
+  }
+}

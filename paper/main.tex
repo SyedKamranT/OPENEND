@@ -1,0 +1,27 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,booktabs,hyperref,natbib,geometry}
+\geometry{margin=1in}
+\title{OPENEND: A Proposal for Controlled Sparse-Region Exploration}
+\author{Authorship pending}
+\date{October 2026 --- proposal, not a completed empirical paper}
+\begin{document}
+\maketitle
+\begin{abstract}
+We propose a controlled study of whether reference-relative sparse-region targeting adds value to otherwise matched quality-diversity search. The initial executable testbed searches a bounded expression language for online bin-packing policies. Both arms share generation, archive design, resource allowances, and evaluation; only parent-selection weights differ. Objective utility, behavioral diversity, and scientific novelty are treated as separate outcomes. The current reference screen cannot establish positive novelty and returns unresolved judgments for non-reference policies. Confirmatory experiments, a broader prior-art corpus, and independent mechanism-level adjudication remain future work. No superiority or validated-discovery claim is made in this proposal.
+\end{abstract}
+\section{Research Question}
+Does sparse-region targeting improve independently validated discovery yield over matched quality-diversity search? The present pilot examines a narrower behavioral-policy version of this question.
+\section{Related Work}
+Novelty search and MAP-Elites establish explicit exploration and quality-diversity objectives \citep{lehman2011abandoning,mouret2015illuminating}. ELM and LLMatic already combine language models with QD \citep{lehman2022elm,nasir2023llmatic}. FunSearch and AlphaEvolve maintain program diversity during executable search \citep{romera2024mathematical,alphaevolve2025}. EoH and BehaveSim are close comparators for heuristic design and behavioral similarity \citep{liu2024eoh,zhang2026behavesim}. Independent novelty measurement needs evidence-based evaluation \citep{novelty2025sdp,rqbench2026}.
+\section{Pilot Method}
+A common bounded JSON policy language, reference corpus, probe panel, and QD archive are used in both arms. Parent sampling is uniform or weighted by reference-relative behavioral sparsity. Full definitions and budgets are versioned in the repository protocol.
+\section{Evaluation and Evidence Status}
+Pilot outcomes must be generated from recorded artifacts. Any engineering results are descriptive and do not establish the primary novelty hypothesis. An unresolved novelty verdict is not converted into a positive label. Failed and incomplete comparisons are preserved.
+\section{Limitations}
+The policy language excludes general code generation, the instance distributions are synthetic, and the reference set is small. Fixed-probe distances are not algorithmic-equivalence proofs. Hosted-model training contamination and stochasticity are not eliminated by retrieval restrictions or local seeds. Generalization and practical effect margins require further study.
+\section{Research Integrity}
+Negative and inconclusive findings are eligible for reporting. Claims will be revised to match evidence, with protocol amendments and failed runs retained.
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

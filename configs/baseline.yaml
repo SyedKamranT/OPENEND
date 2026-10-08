@@ -1,0 +1,6 @@
+# Supersedes the inconsistent initial scaffold configuration.
+status: superseded
+active_configuration: configs/pilot.json
+api_configuration: configs/api_pilot.json
+protocol: docs/experimental-protocol.md
+note: Only the JSON pilot configurations are accepted by the runner.

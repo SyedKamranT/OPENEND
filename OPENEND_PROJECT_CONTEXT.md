@@ -1,3 +1,5 @@
+> **Active amendment ? 2026-10-08:** Phase 1 has been reopened following `docs/research-review-2026-10-08.md`. Current decisions are in `docs/research-question.md` and `docs/experimental-protocol.md`; `configs/pilot.json` governs the implemented bounded bin-packing comparison. Phase numbering in `phases.md` is canonical. The original planning text below is historical intent, not evidence of completed features or a scientific lock. A fixed 2024 cutoff, zero-leakage guarantees, model choices, old seed/budget values, and venue timelines are not active pilot commitments.
+
 # OPENEND — Open-Ended Novelty Discovery Agent
 
 ## IDE / AI Agent Context File

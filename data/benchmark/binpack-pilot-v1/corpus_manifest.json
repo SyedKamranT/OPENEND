@@ -1,0 +1,39 @@
+{
+  "version": "reference-policies-v1",
+  "status": "pilot_reference_set_only",
+  "historical_cutoff": null,
+  "sources": [
+    {
+      "name": "first_fit",
+      "policy": {
+        "expression": 0
+      },
+      "sha256": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+      "provenance": "Original implementation of standard named heuristic",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "best_fit",
+      "policy": {
+        "expression": [
+          "neg",
+          "gap"
+        ]
+      },
+      "sha256": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+      "provenance": "Original implementation of standard named heuristic",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "worst_fit",
+      "policy": {
+        "expression": "gap"
+      },
+      "sha256": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109",
+      "provenance": "Original implementation of standard named heuristic",
+      "license": "Apache-2.0"
+    }
+  ],
+  "probe_sha256": "40848a2e5de0a5a92d130ce04da2505ccd96b08852537d90ce5c3d08f74313ac",
+  "not_a_literature_corpus": true
+}

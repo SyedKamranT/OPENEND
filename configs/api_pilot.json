@@ -1,0 +1,12 @@
+{
+  "version": "binpack-api-pilot-v1",
+  "purpose": "pilot",
+  "seeds": [42, 137, 2024],
+  "candidates_per_arm": 4,
+  "total_tokens_per_arm": 20000,
+  "max_output_tokens": 2048,
+  "per_family": 12,
+  "grid_resolution": 6,
+  "minimum_improvement": 0.01,
+  "reasoning_effort": "none"
+}
