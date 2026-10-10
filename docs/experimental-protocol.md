@@ -48,3 +48,7 @@ Runtime/API/dev dependencies are resolver-locked in `uv.lock`; `requirements.loc
 ## Interpretation and outstanding lock decisions
 
 Reports show raw paired outcomes and exclude incomplete pairs from aggregate comparisons while retaining them visibly. There are no pilot p-values. Model availability, a broader frozen novelty corpus, independently adjudicated labels, strong external algorithm-design baselines, task-level power/precision, confirmatory effect margins, and a fresh controlled holdout are still needed before a scientific lock.
+
+## Local inference amendment (2026-10-10)
+
+Phase 1 remains open. The active model-backed calibration uses local Ollama rather than Azure. `configs/local_pilot.json` specifies three paired seeds, four attempts per arm, a 20,000-token per-arm ceiling, and a 512-token output cap. The shared benchmark/evaluator and sparse-parent-selection treatment remain unchanged. See [local-model-plan.md](local-model-plan.md) for hardware, fixed sampling parameters, 8K context, model lineage, transport restrictions, and the distinction between equal allowances and measured consumption. Existing offline/cloud artifacts retain their original configurations. This is development calibration on previously inspected inputs, not a fresh confirmatory experiment.

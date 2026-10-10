@@ -18,7 +18,19 @@ uv sync --locked --all-extras --cache-dir .cache/uv
 
 Use a new output directory for each run. Existing artifacts are never overwritten. On POSIX systems, executables are under `.venv/bin/`.
 
-The offline backend is a deterministic tree-mutation control. To compare the same arms using your configured model:
+The offline backend is a deterministic tree-mutation control. **Current research uses local Ollama inference**, as authorized on 2026-10-10. Start with an already installed model:
+
+```powershell
+.venv\Scripts\openend.exe run --config configs/local_refined_pilot.json --backend local --structured --model qwen3.5:9b --output results/raw/my-refined-local-run
+```
+
+See the [hardware assessment and local experiment plan](docs/local-model-plan.md). This uses a loopback-only endpoint, an 8K context, and no cloud credentials. Each paired comparison holds the model and inference settings constant. Run one model at a time.
+
+The [first connected Qwen 9B pilot](docs/local-qwen35-9b-results.md) completed 24 attempts with 14 valid policies. No paired parent choices differed, so its equal outcomes do not establish treatment equivalence. See the research log for the calibration steps still needed.
+
+The [refined protocol](docs/refined-pilot-protocol.md) adds schema-constrained generation, longer fixed runs, and selection diagnostics. Read [refinement findings](docs/refinement-findings.md) for completed results and remaining limitations, including the original probe panel's lack of exact-fit cases. Reproduce scores and parent-selection traces with `openend replay RUN`.
+
+The legacy cloud backend remains available for reproducibility, but is not part of the current plan:
 
 ```powershell
 .venv\Scripts\openend.exe doctor --env .env
@@ -54,3 +66,5 @@ Source snapshots explicitly exclude credentials. Output-file hashes are tamper-e
 [phases.md](phases.md) supplies the canonical numbering. Phase 1 remains open while novelty adjudication, a broader corpus, strong comparator implementations, sample-size justification, and a fresh confirmatory holdout are unresolved. Phase 2 is a source-verified map in progress. The Phase 3 pilot evaluator is implemented to make calibration possible. Broader agents, independent novelty verification, expert studies, and confirmatory experiments remain future work.
 
 Negative and inconclusive outcomes are preserved and publishable when methodologically sound. [Review and repair rationale](docs/research-review-2026-10-08.md).
+
+The [completed offline pilot report](docs/pilot-results.md) records 400 attempts across five paired seeds with no selected-test performance improvement from sparse targeting. See the [research log and continuation handoff](docs/research-log.md) for verification results, the unresolved Azure authentication failure, and next steps.

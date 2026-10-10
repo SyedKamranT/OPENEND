@@ -67,6 +67,17 @@ class Archive:
             "qd_score": sum(x[1] for x in self.cells.values()),
         }
 
+    def selection_diagnostics(self, sparse):
+        elites = [self.cells[key] for key in sorted(self.cells)]
+        weights = [0.05 + sparsity(x[2]) if sparse else 1.0 for x in elites]
+        probabilities = [weight / sum(weights) for weight in weights]
+        return {
+            "policy_ids": [entry[0].identity for entry in elites],
+            "probabilities": probabilities,
+            "total_variation_from_uniform": sum(abs(p - 1 / len(elites)) for p in probabilities)
+            / 2,
+        }
+
 
 def novelty_screen(policy):
     exact = [name for name, ref in REFERENCES.items() if ref.identity == policy.identity]

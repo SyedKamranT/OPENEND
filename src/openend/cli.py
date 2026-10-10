@@ -23,7 +23,9 @@ def main():
     bench.add_argument("--per-family", type=int, default=12)
     run = sub.add_parser("run", help="Run paired sparse-off/on pilot")
     run.add_argument("--config", default="configs/pilot.json", type=Path)
-    run.add_argument("--backend", choices=["offline", "api"], default="offline")
+    run.add_argument("--backend", choices=["offline", "api", "local"], default="offline")
+    run.add_argument("--model", default="qwen3.5:9b", help="Installed Ollama model for local mode")
+    run.add_argument("--structured", action="store_true", help="Use the finite local policy schema")
     run.add_argument("--env", default=".env")
     run.add_argument("--output", type=Path, required=True)
     run.add_argument("--root", type=Path, default=Path.cwd())
@@ -31,6 +33,9 @@ def main():
     verify.add_argument("output", type=Path)
     replay = sub.add_parser("replay", help="Recompute saved candidate scores without model calls")
     replay.add_argument("output", type=Path)
+    report = sub.add_parser("report", help="Write a descriptive Markdown report from saved results")
+    report.add_argument("run", type=Path)
+    report.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "doctor":
         cfg = settings(args.env)
@@ -49,13 +54,23 @@ def main():
         print(json.dumps(verify_artifacts(args.output), indent=2))
     elif args.command == "replay":
         print(json.dumps(replay_study(args.output), indent=2))
+    elif args.command == "report":
+        from .report import render_report
+
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(render_report(args.run), encoding="utf-8")
+        print(f"Report written to {args.output}")
     else:
         cfg = load_config(args.config)
         backend = (
             OfflineBackend()
-            if args.backend == "offline"
+            if args.backend != "api"
             else APIBackend(args.env, cfg["max_output_tokens"], cfg["reasoning_effort"])
         )
+        if args.backend == "local":
+            from .local import LocalBackend
+
+            backend = LocalBackend(args.model, cfg["max_output_tokens"], structured=args.structured)
         status, analysis = run_study(cfg, backend, args.output, args.root)
         print(json.dumps({"run_status": status, **analysis}, indent=2))
         if status != "completed":

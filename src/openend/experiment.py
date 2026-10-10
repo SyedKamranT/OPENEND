@@ -66,6 +66,7 @@ def _search(config, seed, arm, backend, train, event_file):
     known_usage = True
     observed_model = None
     for attempt in range(config["candidates_per_arm"]):
+        selection = archive.selection_diagnostics(sparse=arm == "sparse_on")
         parent, fitness, _ = archive.select(selection_rng, sparse=arm == "sparse_on")
         prompt = prompt_for(parent, fitness)
         reservation = backend.reservation(prompt)
@@ -85,6 +86,7 @@ def _search(config, seed, arm, backend, train, event_file):
             "arm": arm,
             "attempt": attempt,
             "parent_id": parent.identity,
+            "selection": selection,
             "prompt": prompt,
             "response_text": result.text,
             "response_metadata": result.metadata,
@@ -243,7 +245,7 @@ def run_study(config, backend, output, root):
         "python": platform.python_version(),
         "platform": platform.platform(),
         "source": source_manifest(root),
-        "prompt_sha256": digest(SYSTEM_PROMPT),
+        "prompt_sha256": digest(backend.identity().get("system_prompt", SYSTEM_PROMPT)),
         "arm_order": [],
         "final_novelty_verifier": "exact_reference_screen_only_unresolved_otherwise",
     }
@@ -331,12 +333,32 @@ def replay_study(output):
     for run in runs:
         old_summary = run["summary"]
         old_audits = [e.get("audit") for e in run["events"]]
+        replay_archive = None
+        if run["events"] and all("selection" in e for e in run["events"]):
+            replay_archive = Archive(manifest["config"]["grid_resolution"])
+            for policy in REFERENCES.values():
+                replay_archive.insert(policy, evaluate(policy, suites["train"])["fitness"])
+            replay_rng = random.Random(run["seed"] + 111)
         for event in run["events"]:
+            if replay_archive is not None:
+                sparse = run["arm"] == "sparse_on"
+                if replay_archive.selection_diagnostics(sparse) != event["selection"]:
+                    raise ValueError("selection probability replay mismatch")
+                parent, fitness, _ = replay_archive.select(replay_rng, sparse)
+                if (
+                    parent.identity != event["parent_id"]
+                    or prompt_for(parent, fitness) != event["prompt"]
+                ):
+                    raise ValueError("parent selection replay mismatch")
             if event["status"] == "ok":
                 actual = evaluate(Policy.from_object(event["policy"]), suites["train"])
                 if actual != event["train"]:
                     raise ValueError("training replay mismatch")
+                if replay_archive is not None:
+                    replay_archive.insert(Policy.from_object(event["policy"]), actual["fitness"])
                 candidates += 1
+        if replay_archive is not None and replay_archive.summary() != run["archive"]:
+            raise ValueError("archive replay mismatch")
         _audit(
             run,
             suites["validation"],
