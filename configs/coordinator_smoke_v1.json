@@ -1,0 +1,14 @@
+{
+  "version": "coordinator-engineering-v1",
+  "purpose": "engineering_pilot",
+  "model": "qwen3.5:4b",
+  "seeds": [42],
+  "calls_per_condition": 6,
+  "tokens_per_condition": 40000,
+  "max_output_tokens": 512,
+  "per_family": 12,
+  "grid_resolution": 6,
+  "minimum_improvement": 0.01,
+  "probe_panel": "training-mixed-v3",
+  "corpus_sha256": "efeae26aaffc70c3e964256d0bfc734018656defa57a5be166d091ed5cb5a3e1"
+}

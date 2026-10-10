@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .experiment import verify_artifacts
 from .policy import REFERENCES, Policy
+from .probes import saved_panel
 from .search import signature
 
 
@@ -15,6 +16,7 @@ def render_report(run_path):
     manifest = json.loads((path / "run_manifest.json").read_text(encoding="utf-8"))
     runs = json.loads((path / "runs.json").read_text(encoding="utf-8"))
     analysis = json.loads((path / "analysis.json").read_text(encoding="utf-8"))
+    panel = saved_panel(path, manifest["config"])
     events = [event for run in runs for event in run["events"]]
     status_counts = dict(sorted(Counter(e["status"] for e in events).items()))
     usage = sum(e["usage"].get("total_tokens", 0) for e in events)
@@ -23,11 +25,13 @@ def render_report(run_path):
     generation_seconds = (
         sum(e["response_metadata"].get("eval_duration", 0) or 0 for e in events) / 1e9
     )
-    parent_signatures = {policy.identity: signature(policy) for policy in REFERENCES.values()}
+    parent_signatures = {
+        policy.identity: signature(policy, panel) for policy in REFERENCES.values()
+    }
     for event in events:
         if "policy" in event:
             policy = Policy.from_object(event["policy"])
-            parent_signatures[policy.identity] = signature(policy)
+            parent_signatures[policy.identity] = signature(policy, panel)
     paired_parents = different_parents = different_parent_behaviors = 0
     for seed in {run["seed"] for run in runs}:
         arms = {run["arm"]: run for run in runs if run["seed"] == seed}
@@ -50,6 +54,7 @@ def render_report(run_path):
         "",
         f"Run: `{path.as_posix()}`. Status: **{manifest['status']}**.",
         f"Backend: `{manifest['backend']['kind']}`; model: `{manifest['backend']['model']}`.",
+        f"Probe panel: `{manifest['config'].get('probe_panel', 'legacy-v1')}` ({len(panel)} decisions).",
         "",
         f"Recorded attempt events: **{len(events)}**. Status counts: `{status_counts}`.",
         f"Provider-reported total tokens: **{usage}** (unknown usage is not imputed as free).",

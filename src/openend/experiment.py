@@ -11,7 +11,8 @@ from .artifacts import digest, file_hash, snapshot_source, source_manifest, writ
 from .backends import SYSTEM_PROMPT, prompt_for
 from .benchmark import evaluate, make_suite, reference_scores, successful, suite_record
 from .policy import REFERENCES, InvalidPolicy, Policy
-from .search import Archive, corpus_manifest, novelty_screen, signature, sparsity
+from .probes import PANEL_VERSIONS, build_panel_record, panel_from_record, saved_panel
+from .search import PROBES, Archive, corpus_manifest, novelty_screen, signature, sparsity
 
 
 def load_config(path):
@@ -28,8 +29,14 @@ def load_config(path):
         "minimum_improvement",
         "reasoning_effort",
     }
-    if not isinstance(value, dict) or set(value) != required or value["purpose"] != "pilot":
+    if (
+        not isinstance(value, dict)
+        or set(value) - {"probe_panel"} != required
+        or value["purpose"] != "pilot"
+    ):
         raise ValueError("expected a pilot configuration with the documented fields")
+    if value.get("probe_panel", "legacy-v1") not in PANEL_VERSIONS:
+        raise ValueError("unknown probe panel version")
     for key, low, high in [
         ("candidates_per_arm", 1, 1000),
         ("total_tokens_per_arm", 1, 1000000),
@@ -57,8 +64,8 @@ def load_config(path):
     return value
 
 
-def _search(config, seed, arm, backend, train, event_file):
-    archive = Archive(config["grid_resolution"])
+def _search(config, seed, arm, backend, train, event_file, panel=PROBES):
+    archive = Archive(config["grid_resolution"], panel)
     for policy in REFERENCES.values():
         archive.insert(policy, evaluate(policy, train)["fitness"])
     selection_rng, mutation_rng = random.Random(seed + 111), random.Random(seed + 222)
@@ -108,7 +115,7 @@ def _search(config, seed, arm, backend, train, event_file):
                         "candidate_id": policy.identity,
                         "policy": policy.to_object(),
                         "train": score,
-                        "sparsity_proxy": sparsity(signature(policy)),
+                        "sparsity_proxy": sparsity(signature(policy, panel), panel),
                     }
                 )
                 if event["status"] == "ok":
@@ -137,7 +144,7 @@ def _search(config, seed, arm, backend, train, event_file):
     }
 
 
-def _audit(run, validation, test, references, improvement):
+def _audit(run, validation, test, references, improvement, panel=PROBES):
     successes, known, unresolved, unique_valid = 0, 0, 0, set()
     unresolved_successes, seen_probe = set(), set()
     finalists = [e for e in run["events"] if e["status"] == "ok"]
@@ -146,7 +153,7 @@ def _audit(run, validation, test, references, improvement):
         if event["status"] != "ok":
             continue
         policy = Policy.from_object(event["policy"])
-        screen = novelty_screen(policy)
+        screen = novelty_screen(policy, panel)
         val_result, test_result = evaluate(policy, validation), evaluate(policy, test)
         is_success = successful(test_result, references, improvement)
         event["audit"] = {
@@ -229,6 +236,8 @@ def paired_analysis(runs):
 
 
 def run_study(config, backend, output, root):
+    panel_record = build_panel_record(config, root)
+    panel = panel_from_record(panel_record)
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)  # Never overwrite a previous experiment.
     splits = {
@@ -251,7 +260,8 @@ def run_study(config, backend, output, root):
     }
     for name in splits:
         write_json(output / f"{name}.json", suite_record(name, config["per_family"]))
-    write_json(output / "corpus_manifest.json", corpus_manifest())
+    write_json(output / "probe_panel.json", panel_record)
+    write_json(output / "corpus_manifest.json", corpus_manifest(panel))
     manifest["input_files"] = {p.name: file_hash(p) for p in sorted(output.glob("*.json"))}
     write_json(output / "run_manifest.json", manifest)
     snapshot_source(root, manifest["source"], output / "source.zip")
@@ -265,7 +275,7 @@ def run_study(config, backend, output, root):
                 write_json(output / "run_manifest.json", manifest)
                 for arm in order:
                     print(f"Running seed={seed} arm={arm} backend={backend.kind}", flush=True)
-                    runs.append(_search(config, seed, arm, backend, splits["train"], events))
+                    runs.append(_search(config, seed, arm, backend, splits["train"], events, panel))
         # All generation ends before either held-out split is scored.
         references = {name: reference_scores(suite) for name, suite in splits.items()}
         write_json(output / "reference_scores.json", references)
@@ -276,6 +286,7 @@ def run_study(config, backend, output, root):
                 splits["test"],
                 references["test"],
                 config["minimum_improvement"],
+                panel,
             )
         write_json(output / "runs.json", runs)
         analysis = paired_analysis(runs)
@@ -320,6 +331,7 @@ def replay_study(output):
     verify_artifacts(output)
     manifest = json.loads((output / "run_manifest.json").read_text(encoding="utf-8"))
     runs = json.loads((output / "runs.json").read_text(encoding="utf-8"))
+    panel = saved_panel(output, manifest["config"])
     suites = {}
     for split in ("train", "validation", "test"):
         data = json.loads((output / f"{split}.json").read_text(encoding="utf-8"))
@@ -335,7 +347,7 @@ def replay_study(output):
         old_audits = [e.get("audit") for e in run["events"]]
         replay_archive = None
         if run["events"] and all("selection" in e for e in run["events"]):
-            replay_archive = Archive(manifest["config"]["grid_resolution"])
+            replay_archive = Archive(manifest["config"]["grid_resolution"], panel)
             for policy in REFERENCES.values():
                 replay_archive.insert(policy, evaluate(policy, suites["train"])["fitness"])
             replay_rng = random.Random(run["seed"] + 111)
@@ -365,6 +377,7 @@ def replay_study(output):
             suites["test"],
             ref,
             manifest["config"]["minimum_improvement"],
+            panel,
         )
         if run["summary"] != old_summary or old_audits != [e.get("audit") for e in run["events"]]:
             raise ValueError("final evaluation replay mismatch")

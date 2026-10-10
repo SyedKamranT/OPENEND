@@ -1,0 +1,358 @@
+{
+  "version": "reference-equivalence-v1",
+  "verifier_sha256": "ac38bd328d819ba3f878d502bda174690ac2a2d4ace39ae6379c5519bad6f837",
+  "interpreter_sha256": "53d3ad5384b45851d6520061f63389ae46fbb3d023466c6a1ced2fd322c4e6f9",
+  "run": "results/raw/local-gemma3-12b-refined-v2",
+  "run_manifest_sha256": "a888faf54c709ea40674d68230efb23ff2545adfeec41940a3e336b08ccab387",
+  "purpose": "posthoc verifier diagnostic; original experiment labels remain unchanged",
+  "unique_policies": 22,
+  "certified_reference_equivalents": 9,
+  "certificates": {
+    "1ff322cf0b0a7a2b4af88f045e8acecfbea97e1dfd9ed9c20a3f1e4062272318": {
+      "policy_sha256": "1ff322cf0b0a7a2b4af88f045e8acecfbea97e1dfd9ed9c20a3f1e4062272318",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "64bb7f699c14c13c6406cf247b3f3396ba1d584930695acf4fd1677fd7da5164",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "2280fe973fcb6ebb7a97d6b58d86a88ecf0558564dd0ebeb3d2c66849d0fac33": {
+      "policy_sha256": "2280fe973fcb6ebb7a97d6b58d86a88ecf0558564dd0ebeb3d2c66849d0fac33",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "c76916cbdf6c32887b7c8675512670f43a5a5bcdb4e09aeffbc3eae9bfb108d7",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "235c7d92d3f2476bbdf46c4723f869b0f7c3096815ebd0fb47a2ee33e6890b2b": {
+      "policy_sha256": "235c7d92d3f2476bbdf46c4723f869b0f7c3096815ebd0fb47a2ee33e6890b2b",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "matches": [],
+      "states_checked": 5050,
+      "score_table_sha256": "fddfd001563ad07efd12a69acc6c2ef811817d930cd1251c1cdae89b68e28472",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "2ca3661772bb14f6d15d5a7edfb211caa677d769e1e8c18f64e421a3e0efbea0": {
+      "policy_sha256": "2ca3661772bb14f6d15d5a7edfb211caa677d769e1e8c18f64e421a3e0efbea0",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "reason": "index-dependent proof not implemented"
+    },
+    "32e5c60af030583192b6abe48457a0682ebba300de2f10e1ba058ed6c3976703": {
+      "policy_sha256": "32e5c60af030583192b6abe48457a0682ebba300de2f10e1ba058ed6c3976703",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "reason": "index-dependent proof not implemented"
+    },
+    "43b6e259347b3dc5449c4c23895b58689d9c587283ac6ec08f63febcfdf13dda": {
+      "policy_sha256": "43b6e259347b3dc5449c4c23895b58689d9c587283ac6ec08f63febcfdf13dda",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "matches": [],
+      "states_checked": 5050,
+      "score_table_sha256": "b3ce9c3ffe69e052f114f3eda44a2f31a04b7579bdfcad499947aab1dc3e1019",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "5c57b6020f1ab970ce7734dac8c7a5412d6826e093cb9e07ee75868ec0f8fbf2": {
+      "policy_sha256": "5c57b6020f1ab970ce7734dac8c7a5412d6826e093cb9e07ee75868ec0f8fbf2",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "matches": [],
+      "states_checked": 5050,
+      "score_table_sha256": "5a85bd4eb2bf8b5ab74955ae5a6ea79294ba0d166ce3da9826b1aaa0363b3dc0",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "5c58002bf8337d58e3971f590cf408427cc456ff6a53ca4da14506f2a02b4d2a": {
+      "policy_sha256": "5c58002bf8337d58e3971f590cf408427cc456ff6a53ca4da14506f2a02b4d2a",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "5ddc022cb30904fb6fe3f52e4273afc2a3254557c7235a8f21f1d1992625c4eb",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "62f0adcccbba94dfe422d2ee2dd8425d6e75f6fa58d5374c44e4432fa8aaf12e": {
+      "policy_sha256": "62f0adcccbba94dfe422d2ee2dd8425d6e75f6fa58d5374c44e4432fa8aaf12e",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "e9689ea202ff0426e095e93ca51949c06e9e9a8892ef7c2d9b6857ba1c23bddc",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "63f253b1876f53700f68c22df0674a7aa1ed0362eb4f128f80212b5fc48f78c0": {
+      "policy_sha256": "63f253b1876f53700f68c22df0674a7aa1ed0362eb4f128f80212b5fc48f78c0",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "matches": [],
+      "states_checked": 5050,
+      "score_table_sha256": "fa8934cb593b67e056dc77163547030653498cfb8cd93974d28d8568b0262746",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "6e3c1a82bbfc6fbefd7600297ece5b46fd76d45cd43a3a51077390d1c2090d5e": {
+      "policy_sha256": "6e3c1a82bbfc6fbefd7600297ece5b46fd76d45cd43a3a51077390d1c2090d5e",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "reason": "index-dependent proof not implemented"
+    },
+    "994c6c30a222749868333cc9b8e20bd018b19fd904435a4eb84a55073611b566": {
+      "policy_sha256": "994c6c30a222749868333cc9b8e20bd018b19fd904435a4eb84a55073611b566",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "10ab8cde416e8276780ac26df878b8388703db7e22f524dd055b09ea7b3252a0",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "99da0acecf9f366a52f6205b01377834812776ad212214216f36cab5e818d91f": {
+      "policy_sha256": "99da0acecf9f366a52f6205b01377834812776ad212214216f36cab5e818d91f",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "reason": "index-dependent proof not implemented"
+    },
+    "ac04a85b5156ad434af904af312daec81e7cdf5d11b7d3edea4ceea06eca436a": {
+      "policy_sha256": "ac04a85b5156ad434af904af312daec81e7cdf5d11b7d3edea4ceea06eca436a",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "worst_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "6edc0f0665d8bf71440094e0285ccb9ca022175a2713b18843c17f4d8840d2d2",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "b317e56cd51071a842aac10897770c8c3d0e42564e34d930913bdcb98dafa85c": {
+      "policy_sha256": "b317e56cd51071a842aac10897770c8c3d0e42564e34d930913bdcb98dafa85c",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "ed7e96cfacb0fea58fb33f7348b354b2a1c488f10c5f7edbea3d7522f8038ba6",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "bc9d82b38e04cf07ea9f881a64d1c052af9f1029b3c077661a18b2cb75f87064": {
+      "policy_sha256": "bc9d82b38e04cf07ea9f881a64d1c052af9f1029b3c077661a18b2cb75f87064",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "reason": "index-dependent proof not implemented"
+    },
+    "be4393b4baa18e4a9c3048df98cfb34f43b6dd724224eadfd88f49283fc399b4": {
+      "policy_sha256": "be4393b4baa18e4a9c3048df98cfb34f43b6dd724224eadfd88f49283fc399b4",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "matches": [],
+      "states_checked": 5050,
+      "score_table_sha256": "9ee148cebdd809d5a2d01f0cd6fa33d9cd19990bb28ff16293afb5d2e9318a0f",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "c56e938b6bff4dfa290e354bd67bcee7e9fadc63bf36c638a4562d4267005e75": {
+      "policy_sha256": "c56e938b6bff4dfa290e354bd67bcee7e9fadc63bf36c638a4562d4267005e75",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "557d63a0f5903ec48eb40ad4d12347c4f1407eed788114fdf4a2c65717c47876",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "c7b89fe34a62e63b5caaeb4531b590403f30eae8f6c3050c48366f13fe807f31": {
+      "policy_sha256": "c7b89fe34a62e63b5caaeb4531b590403f30eae8f6c3050c48366f13fe807f31",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "known_reference_equivalent",
+      "matches": [
+        "best_fit"
+      ],
+      "states_checked": 5050,
+      "score_table_sha256": "884c7a0ea3d14b57372604e004e9d3df9c3a845c596f8ffc8cb8621f0a8ac7db",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "db47ed921e6815a67a802a6528fba8fee07d4be3f5c6f277ecd8080a3b3c2bf1": {
+      "policy_sha256": "db47ed921e6815a67a802a6528fba8fee07d4be3f5c6f277ecd8080a3b3c2bf1",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "matches": [],
+      "states_checked": 5050,
+      "score_table_sha256": "82dbb125e877db0c6d51f4005372427b56a2b853a5a81dc5db7703e860832111",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "e0e90d894b08cc40eb191c20d0c438ee88d8f827ea28ee0e43a9eeefb74ac409": {
+      "policy_sha256": "e0e90d894b08cc40eb191c20d0c438ee88d8f827ea28ee0e43a9eeefb74ac409",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "matches": [],
+      "states_checked": 5050,
+      "score_table_sha256": "10756cc2ea544621f6af70b4e05ee6bb9637c81c2eec2b19aaa7e95c1130ccb5",
+      "method": "exhaustive per-item score ordering under the actual bounded interpreter",
+      "limitation": "A sufficient equivalence certificate only; no match does not imply novelty. Interpreter correctness is a shared dependency."
+    },
+    "fad843a531aa1de4aff32a05b277cde5d405f02088b2adcd485583df8368258f": {
+      "policy_sha256": "fad843a531aa1de4aff32a05b277cde5d405f02088b2adcd485583df8368258f",
+      "reference_set": {
+        "first_fit": "075b1bf827bdf7e57fdf5426a87831594a380611a2fbf59dcc3e396664a024ad",
+        "best_fit": "cf6a79c532c6207cc82d69d932d347510c75618c6e6298ca1d2d1e87d525d570",
+        "worst_fit": "614d981f0606e67e85fcbe003b3eb5056316b2696faa74f66957b90d5a087109"
+      },
+      "scope": "capacity 100, positive integer item sizes, feasible integer remaining capacities, host placement/tie rules",
+      "global_novelty": "unresolved",
+      "verdict": "unresolved",
+      "reason": "index-dependent proof not implemented"
+    }
+  }
+}

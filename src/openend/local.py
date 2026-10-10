@@ -75,12 +75,19 @@ class LocalBackend:
         return len((self.system_prompt + prompt).encode()) + 512 + self.max_output
 
     def propose(self, parent, fitness, rng):
+        return self.generate(
+            self.system_prompt,
+            prompt_for(parent, fitness),
+            self.output_format,
+            rng.randrange(2**31),
+        )
+
+    def generate(self, system, prompt, output_format, seed):
+        """One accounted local request; callers supply a role-specific schema and prompt."""
         if self.terminal_error:
             return Proposal(None, {}, {**self.terminal_error, "request_sent": False}, "api_error")
-        prompt = prompt_for(parent, fitness)
-        if self.reservation(prompt) > self.context:
+        if len((system + prompt).encode()) + 512 + self.max_output > self.context:
             return Proposal(None, {}, {"error_type": "ContextReservationExceeded"}, "api_error")
-        seed = rng.randrange(2**31)
         started = time.monotonic()
         try:
             if self._model_record()["digest"] != self.record["digest"]:
@@ -92,11 +99,11 @@ class LocalBackend:
                     "model": self.model,
                     "stream": False,
                     "think": False,
-                    "format": self.output_format,
+                    "format": output_format,
                     "keep_alive": "10m",
                     "options": {**self.options, "seed": seed},
                     "messages": [
-                        {"role": "system", "content": self.system_prompt},
+                        {"role": "system", "content": system},
                         {"role": "user", "content": prompt},
                     ],
                 },

@@ -30,6 +30,8 @@ The [first connected Qwen 9B pilot](docs/local-qwen35-9b-results.md) completed 2
 
 The [refined protocol](docs/refined-pilot-protocol.md) adds schema-constrained generation, longer fixed runs, and selection diagnostics. Read [refinement findings](docs/refinement-findings.md) for completed results and remaining limitations, including the original probe panel's lack of exact-fit cases. Reproduce scores and parent-selection traces with `openend replay RUN`.
 
+The subsequent [v3 representation protocol](docs/probes-v3-protocol.md) uses `configs/local_probes_v3.json` with the same local/structured flags. It combines legacy and training-derived probes and preserves older-run replay. The [full-goal evidence audit](docs/goal-evidence-audit.md) tracks unfinished discovery-system requirements. [Verifier and corpus foundations](docs/verifier-and-corpus-foundation.md) provide separate conservative equivalence audits and a small frozen source-note retriever; neither certifies global novelty.
+
 The legacy cloud backend remains available for reproducibility, but is not part of the current plan:
 
 ```powershell
@@ -67,4 +69,4 @@ Source snapshots explicitly exclude credentials. Output-file hashes are tamper-e
 
 Negative and inconclusive outcomes are preserved and publishable when methodologically sound. [Review and repair rationale](docs/research-review-2026-10-08.md).
 
-The [completed offline pilot report](docs/pilot-results.md) records 400 attempts across five paired seeds with no selected-test performance improvement from sparse targeting. See the [research log and continuation handoff](docs/research-log.md) for verification results, the unresolved Azure authentication failure, and next steps.
+The [completed offline pilot report](docs/pilot-results.md) records 400 attempts across five paired seeds with no selected-test performance improvement from sparse targeting. The latest [local coordinator trial](docs/coordinator-v1-results.md) adds generator/critic/recombiner roles and conventional-generation/retrieval controls: 24 completed calls, no utility successes, and 0/4 target hits. See the [diagnosis and next calibration](docs/coordinator-diagnostics.md) and [research log](docs/research-log.md). Phase 1 remains open; inference is local only.

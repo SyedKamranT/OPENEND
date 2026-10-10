@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "scope": "curated_review_notes_only_not_full_text",
+  "documents": [
+    {
+      "id": "alphaevolve-2025",
+      "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+      "source_url": "https://arxiv.org/abs/2506.13131v1",
+      "source_version": "arXiv:2506.13131v1",
+      "reviewed_date": "2026-10-10",
+      "evidence_scope": "primary abstract reviewed; original summary, not implementation replication",
+      "note": "AlphaEvolve coordinates language-model code editing with evolutionary retention and evaluator feedback. The report describes applications to computing infrastructure and mathematical algorithms, including matrix multiplication. This is prior work on autonomous executable discovery loops. OPENEND cannot claim originality merely from combining generated programs with evaluation and evolution. Concrete comparisons require inspecting the search database and the task-specific evaluation setup beyond the abstract."
+    },
+    {
+      "id": "elm-2022",
+      "title": "Evolution through Large Models",
+      "source_url": "https://arxiv.org/abs/2206.08896v1",
+      "source_version": "arXiv:2206.08896v1",
+      "reviewed_date": "2026-10-10",
+      "evidence_scope": "primary abstract reviewed; original summary, not a full-text snapshot",
+      "note": "ELM uses code language models as program mutation operators. Its reported MAP-Elites experiment produces Python controllers for simulated walking robots in Sodarace, then uses generated examples to train a conditional model. This is prior work connecting language-model variation with a quality-diversity archive. The abstract does not establish a comprehensive literature novelty verifier. OPENEND must distinguish any contribution from this established combination."
+    },
+    {
+      "id": "eoh-2024",
+      "title": "Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model",
+      "source_url": "https://arxiv.org/abs/2401.02051v3",
+      "source_version": "arXiv:2401.02051v3",
+      "reviewed_date": "2026-10-10",
+      "evidence_scope": "primary abstract reviewed; reported performance not independently replicated",
+      "note": "EoH evolves heuristic descriptions together with executable implementations. Language models translate the descriptions into programs within an evolutionary search. The authors report improvements on combinatorial optimization tasks, including online bin packing. It is a relevant algorithm-design comparator for OPENEND. These abstract-level claims do not specify a faithful reproduction of its population, operators, prompts, data, or resource accounting; those require methods and implementation review."
+    },
+    {
+      "id": "mapelites-2015",
+      "title": "Illuminating search spaces by mapping elites",
+      "source_url": "https://arxiv.org/abs/1504.04909v1",
+      "source_version": "arXiv:1504.04909v1",
+      "reviewed_date": "2026-10-10",
+      "evidence_scope": "primary abstract reviewed; original summary of the archive concept",
+      "note": "MAP-Elites organizes high-quality solutions along user-chosen descriptive dimensions instead of returning only one optimum. The resulting archive illustrates how performance relates to those dimensions and retains varied solutions. This supplies an established foundation for OPENEND's quality-diversity archive. Archive occupancy is a representation-dependent search measure; the abstract does not make it a certificate of novelty relative to all earlier literature."
+    }
+  ],
+  "document_hashes": {
+    "alphaevolve-2025": "7ad7322ca23c027e1c61f991fd8c13b3619c924ab879d23cb4f0af7c64969432",
+    "elm-2022": "e2e70a403ffa21606b4a0727ad5d56431b397e6f4852f817001e8cefe1456be6",
+    "eoh-2024": "eb6a3a761d7bac7a1077df6cf18db1fe5f6df25ebb9bfaff47c3ac93984d0e77",
+    "mapelites-2015": "e5e22812cf0db638287636a00c73c21004c0e1163e60b70703b158795d1a01e6"
+  },
+  "corpus_sha256": "efeae26aaffc70c3e964256d0bfc734018656defa57a5be166d091ed5cb5a3e1"
+}
