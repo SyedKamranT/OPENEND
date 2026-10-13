@@ -7,6 +7,7 @@ import random
 from datetime import UTC, datetime
 from pathlib import Path
 
+from . import evidence as grounded
 from .agents import (
     CRITIC_SCHEMA,
     CRITIC_SYSTEM,
@@ -56,6 +57,8 @@ def load_config(path):
         or config["purpose"] != "engineering_pilot"
     ):
         raise ValueError("invalid coordinator configuration")
+    if config["version"] not in ("coordinator-engineering-v1", "coordinator-grounded-v2"):
+        raise ValueError("unknown coordinator version")
     for key, low, high in (
         ("calls_per_condition", 3, 300),
         ("tokens_per_condition", 1, 1000000),
@@ -93,6 +96,7 @@ def _compact_score(score):
 
 
 def run_condition(config, backend, seed, condition, train, panel, corpus_path, journal):
+    evidence_gate = config["version"] == "coordinator-grounded-v2"
     archive = Archive(config["grid_resolution"], panel)
     reference_evaluations = {name: evaluate(policy, train) for name, policy in REFERENCES.items()}
     for name, policy in REFERENCES.items():
@@ -178,6 +182,10 @@ def run_condition(config, backend, seed, condition, train, panel, corpus_path, j
         system, schema = (
             (CRITIC_SYSTEM, CRITIC_SCHEMA) if role == "critic" else (POLICY_SYSTEM, policy_schema())
         )
+        if role == "critic" and evidence_gate:
+            original = Policy.from_object(payload["proposal"])
+            payload["behavior_evidence"] = grounded.behavior_evidence(original)
+            system, schema = grounded.SYSTEM, grounded.schema()
         if role == "recombiner":
             system += "\nAct as the recombination agent: combine useful parts of proposal and donor while critically using the revision advice."
         prompt = canonical(payload)
@@ -235,8 +243,16 @@ def run_condition(config, backend, seed, condition, train, panel, corpus_path, j
         if event["status"] == "ok":
             try:
                 if role == "critic":
-                    state["critique"] = parse_critique(result.text)
-                    event["critique"] = state["critique"]
+                    if evidence_gate:
+                        assessment = grounded.assess(result.text, original, train)
+                        event["claim_check"] = assessment
+                        state["critique"] = assessment.get("feedback")
+                        event["critique"] = state["critique"]
+                        if not assessment["accepted"]:
+                            event["status"] = "rejected_critique"
+                    else:
+                        state["critique"] = parse_critique(result.text)
+                        event["critique"] = state["critique"]
                 else:
                     policy = Policy.from_text(result.text)
                     score = evaluate(policy, train)
@@ -361,7 +377,8 @@ def run_study(config, backend, output, root):
     write_json(output / "probe_panel.json", panel_record)
     write_json(output / "knowledge_corpus.json", corpus)
     manifest = {
-        "experiment_kind": "coordinator-v1",
+        "experiment_kind": "coordinator-v2"
+        if config["version"] == "coordinator-grounded-v2" else "coordinator-v1",
         "status": "running",
         "config": config,
         "config_sha256": digest(config),
@@ -463,7 +480,7 @@ def replay(output):
     output = Path(output)
     verify_artifacts(output)
     manifest = json.loads((output / "run_manifest.json").read_text(encoding="utf-8"))
-    if manifest.get("experiment_kind") != "coordinator-v1" or manifest["status"] not in (
+    if manifest.get("experiment_kind") not in ("coordinator-v1", "coordinator-v2") or manifest["status"] not in (
         "completed",
         "incomplete_comparison",
     ):

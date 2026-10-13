@@ -1,0 +1,1041 @@
+{
+  "version": "independent-review-v1",
+  "contract": "The host places each arriving item in the feasible existing bin with maximum score, with\nearliest-bin tie breaks. A new bin is opened only if no existing bin is feasible.\nYou cannot see future items. All features are bounded in [0,1]: gap=(remaining-item)/100,\nremaining=remaining/100, item=item/100, index=bin_index/max(1,bin_count-1),\nfraction=item/remaining, exact_fit=1 if remaining==item else 0.\nAn expression is a feature string, a number in [-10,10], or an operator array:\n[add,a,b], [sub,a,b], [mul,a,b], [div,a,b], [min,a,b], [max,a,b], [abs,a], [neg,a].\nUse quoted operator strings in JSON. Division returns 0 when |denominator|<0.000001.\nIntermediate scores are clipped to [-1000000,1000000]. Maximum 31 nodes, depth 6.\n",
+  "corpus_sha256": "f6ec611c902ae312f87b644b181045eb3aa448ddc8ec97a94a488c7269a1c7c6",
+  "cases": [
+    {
+      "case_id": "case-01",
+      "policy": {
+        "expression": 0
+      },
+      "traces": [
+        {
+          "item": 10,
+          "remaining": [
+            70,
+            10,
+            40
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.6,
+                "remaining": 0.7,
+                "item": 0.1,
+                "index": 0.0,
+                "fraction": 0.14285714285714285,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.1,
+                "item": 0.1,
+                "index": 0.5,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.4,
+                "item": 0.1,
+                "index": 1.0,
+                "fraction": 0.25,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 30,
+          "remaining": [
+            80,
+            60,
+            35
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.8,
+                "item": 0.3,
+                "index": 0.0,
+                "fraction": 0.375,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.6,
+                "item": 0.3,
+                "index": 0.5,
+                "fraction": 0.5,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.05,
+                "remaining": 0.35,
+                "item": 0.3,
+                "index": 1.0,
+                "fraction": 0.8571428571428571,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 20,
+          "remaining": [
+            20,
+            70,
+            45
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.2,
+                "item": 0.2,
+                "index": 0.0,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.7,
+                "item": 0.2,
+                "index": 0.5,
+                "fraction": 0.2857142857142857,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.25,
+                "remaining": 0.45,
+                "item": 0.2,
+                "index": 1.0,
+                "fraction": 0.4444444444444444,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        }
+      ]
+    },
+    {
+      "case_id": "case-02",
+      "policy": {
+        "expression": [
+          "add",
+          [
+            "neg",
+            "gap"
+          ],
+          [
+            "max",
+            [
+              "mul",
+              "item",
+              [
+                "sub",
+                "remaining",
+                "gap"
+              ]
+            ],
+            "gap"
+          ]
+        ]
+      },
+      "traces": [
+        {
+          "item": 10,
+          "remaining": [
+            70,
+            10,
+            40
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.6,
+                "remaining": 0.7,
+                "item": 0.1,
+                "index": 0.0,
+                "fraction": 0.14285714285714285,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.1,
+                "item": 0.1,
+                "index": 0.5,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.010000000000000002
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.4,
+                "item": 0.1,
+                "index": 1.0,
+                "fraction": 0.25,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 1,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 30,
+          "remaining": [
+            80,
+            60,
+            35
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.8,
+                "item": 0.3,
+                "index": 0.0,
+                "fraction": 0.375,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.6,
+                "item": 0.3,
+                "index": 0.5,
+                "fraction": 0.5,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.05,
+                "remaining": 0.35,
+                "item": 0.3,
+                "index": 1.0,
+                "fraction": 0.8571428571428571,
+                "exact_fit": 0.0
+              },
+              "score": 0.039999999999999994
+            }
+          ],
+          "selected_bin": 2,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 20,
+          "remaining": [
+            20,
+            70,
+            45
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.2,
+                "item": 0.2,
+                "index": 0.0,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.04000000000000001
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.7,
+                "item": 0.2,
+                "index": 0.5,
+                "fraction": 0.2857142857142857,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.25,
+                "remaining": 0.45,
+                "item": 0.2,
+                "index": 1.0,
+                "fraction": 0.4444444444444444,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        }
+      ]
+    },
+    {
+      "case_id": "case-03",
+      "policy": {
+        "expression": [
+          "neg",
+          "gap"
+        ]
+      },
+      "traces": [
+        {
+          "item": 10,
+          "remaining": [
+            70,
+            10,
+            40
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.6,
+                "remaining": 0.7,
+                "item": 0.1,
+                "index": 0.0,
+                "fraction": 0.14285714285714285,
+                "exact_fit": 0.0
+              },
+              "score": -0.6
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.1,
+                "item": 0.1,
+                "index": 0.5,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": -0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.4,
+                "item": 0.1,
+                "index": 1.0,
+                "fraction": 0.25,
+                "exact_fit": 0.0
+              },
+              "score": -0.3
+            }
+          ],
+          "selected_bin": 1,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 30,
+          "remaining": [
+            80,
+            60,
+            35
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.8,
+                "item": 0.3,
+                "index": 0.0,
+                "fraction": 0.375,
+                "exact_fit": 0.0
+              },
+              "score": -0.5
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.6,
+                "item": 0.3,
+                "index": 0.5,
+                "fraction": 0.5,
+                "exact_fit": 0.0
+              },
+              "score": -0.3
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.05,
+                "remaining": 0.35,
+                "item": 0.3,
+                "index": 1.0,
+                "fraction": 0.8571428571428571,
+                "exact_fit": 0.0
+              },
+              "score": -0.05
+            }
+          ],
+          "selected_bin": 2,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 20,
+          "remaining": [
+            20,
+            70,
+            45
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.2,
+                "item": 0.2,
+                "index": 0.0,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": -0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.7,
+                "item": 0.2,
+                "index": 0.5,
+                "fraction": 0.2857142857142857,
+                "exact_fit": 0.0
+              },
+              "score": -0.5
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.25,
+                "remaining": 0.45,
+                "item": 0.2,
+                "index": 1.0,
+                "fraction": 0.4444444444444444,
+                "exact_fit": 0.0
+              },
+              "score": -0.25
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        }
+      ]
+    },
+    {
+      "case_id": "case-04",
+      "policy": {
+        "expression": [
+          "mul",
+          "gap",
+          "exact_fit"
+        ]
+      },
+      "traces": [
+        {
+          "item": 10,
+          "remaining": [
+            70,
+            10,
+            40
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.6,
+                "remaining": 0.7,
+                "item": 0.1,
+                "index": 0.0,
+                "fraction": 0.14285714285714285,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.1,
+                "item": 0.1,
+                "index": 0.5,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.4,
+                "item": 0.1,
+                "index": 1.0,
+                "fraction": 0.25,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 30,
+          "remaining": [
+            80,
+            60,
+            35
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.8,
+                "item": 0.3,
+                "index": 0.0,
+                "fraction": 0.375,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.6,
+                "item": 0.3,
+                "index": 0.5,
+                "fraction": 0.5,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.05,
+                "remaining": 0.35,
+                "item": 0.3,
+                "index": 1.0,
+                "fraction": 0.8571428571428571,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 20,
+          "remaining": [
+            20,
+            70,
+            45
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.2,
+                "item": 0.2,
+                "index": 0.0,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.7,
+                "item": 0.2,
+                "index": 0.5,
+                "fraction": 0.2857142857142857,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.25,
+                "remaining": 0.45,
+                "item": 0.2,
+                "index": 1.0,
+                "fraction": 0.4444444444444444,
+                "exact_fit": 0.0
+              },
+              "score": 0.0
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        }
+      ]
+    },
+    {
+      "case_id": "case-05",
+      "policy": {
+        "expression": [
+          "div",
+          "item",
+          "remaining"
+        ]
+      },
+      "traces": [
+        {
+          "item": 10,
+          "remaining": [
+            70,
+            10,
+            40
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.6,
+                "remaining": 0.7,
+                "item": 0.1,
+                "index": 0.0,
+                "fraction": 0.14285714285714285,
+                "exact_fit": 0.0
+              },
+              "score": 0.14285714285714288
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.1,
+                "item": 0.1,
+                "index": 0.5,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 1.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.4,
+                "item": 0.1,
+                "index": 1.0,
+                "fraction": 0.25,
+                "exact_fit": 0.0
+              },
+              "score": 0.25
+            }
+          ],
+          "selected_bin": 1,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 30,
+          "remaining": [
+            80,
+            60,
+            35
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.8,
+                "item": 0.3,
+                "index": 0.0,
+                "fraction": 0.375,
+                "exact_fit": 0.0
+              },
+              "score": 0.37499999999999994
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.6,
+                "item": 0.3,
+                "index": 0.5,
+                "fraction": 0.5,
+                "exact_fit": 0.0
+              },
+              "score": 0.5
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.05,
+                "remaining": 0.35,
+                "item": 0.3,
+                "index": 1.0,
+                "fraction": 0.8571428571428571,
+                "exact_fit": 0.0
+              },
+              "score": 0.8571428571428572
+            }
+          ],
+          "selected_bin": 2,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 20,
+          "remaining": [
+            20,
+            70,
+            45
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.2,
+                "item": 0.2,
+                "index": 0.0,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 1.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.7,
+                "item": 0.2,
+                "index": 0.5,
+                "fraction": 0.2857142857142857,
+                "exact_fit": 0.0
+              },
+              "score": 0.28571428571428575
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.25,
+                "remaining": 0.45,
+                "item": 0.2,
+                "index": 1.0,
+                "fraction": 0.4444444444444444,
+                "exact_fit": 0.0
+              },
+              "score": 0.4444444444444445
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        }
+      ]
+    },
+    {
+      "case_id": "case-06",
+      "policy": {
+        "expression": "gap"
+      },
+      "traces": [
+        {
+          "item": 10,
+          "remaining": [
+            70,
+            10,
+            40
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.6,
+                "remaining": 0.7,
+                "item": 0.1,
+                "index": 0.0,
+                "fraction": 0.14285714285714285,
+                "exact_fit": 0.0
+              },
+              "score": 0.6
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.1,
+                "item": 0.1,
+                "index": 0.5,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.4,
+                "item": 0.1,
+                "index": 1.0,
+                "fraction": 0.25,
+                "exact_fit": 0.0
+              },
+              "score": 0.3
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 30,
+          "remaining": [
+            80,
+            60,
+            35
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.8,
+                "item": 0.3,
+                "index": 0.0,
+                "fraction": 0.375,
+                "exact_fit": 0.0
+              },
+              "score": 0.5
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.3,
+                "remaining": 0.6,
+                "item": 0.3,
+                "index": 0.5,
+                "fraction": 0.5,
+                "exact_fit": 0.0
+              },
+              "score": 0.3
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.05,
+                "remaining": 0.35,
+                "item": 0.3,
+                "index": 1.0,
+                "fraction": 0.8571428571428571,
+                "exact_fit": 0.0
+              },
+              "score": 0.05
+            }
+          ],
+          "selected_bin": 0,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        },
+        {
+          "item": 20,
+          "remaining": [
+            20,
+            70,
+            45
+          ],
+          "capacity": 100,
+          "bins": [
+            {
+              "bin": 0,
+              "feasible": true,
+              "features": {
+                "gap": 0.0,
+                "remaining": 0.2,
+                "item": 0.2,
+                "index": 0.0,
+                "fraction": 1.0,
+                "exact_fit": 1.0
+              },
+              "score": 0.0
+            },
+            {
+              "bin": 1,
+              "feasible": true,
+              "features": {
+                "gap": 0.5,
+                "remaining": 0.7,
+                "item": 0.2,
+                "index": 0.5,
+                "fraction": 0.2857142857142857,
+                "exact_fit": 0.0
+              },
+              "score": 0.5
+            },
+            {
+              "bin": 2,
+              "feasible": true,
+              "features": {
+                "gap": 0.25,
+                "remaining": 0.45,
+                "item": 0.2,
+                "index": 1.0,
+                "fraction": 0.4444444444444444,
+                "exact_fit": 0.0
+              },
+              "score": 0.25
+            }
+          ],
+          "selected_bin": 1,
+          "opens_bin": false,
+          "tie_break": "earliest feasible bin with maximal score"
+        }
+      ]
+    }
+  ],
+  "scope": "mechanism-review controls and unresolved candidate; not utility claims",
+  "packet_sha256": "2eef65ea2a496357a1c6c8badf3968a76d6ce12fdeaeec085ea93f1b8ec3297a"
+}

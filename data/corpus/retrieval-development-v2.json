@@ -1,0 +1,20 @@
+{
+  "version": "retrieval-development-v2",
+  "independent_labels": false,
+  "scope": "same-author development labels fixed before scoring; not a retrieval validation study",
+  "top_k": 3,
+  "queries": [
+    {"id":"q01","query":"earliest feasible bin constant score ties","relevant":["classic-first-fit-1974"]},
+    {"id":"q02","query":"tightest remaining space positive item fraction","relevant":["classic-best-fit-1974"]},
+    {"id":"q03","query":"piecewise residual thresholds nonmonotonic bin priorities","relevant":["funsearch-or-score-2023"]},
+    {"id":"q04","query":"maximum capacity neighboring scores Weibull","relevant":["funsearch-weibull-score-2023"]},
+    {"id":"q05","query":"reciprocal item size classes separate active bins","relevant":["harmonic-lee-1985"]},
+    {"id":"q06","query":"most recently opened bin ignores feasible older bins","relevant":["next-fit-definition-2020"]},
+    {"id":"q07","query":"islands program score signature temperature reset","relevant":["funsearch-database-2023"]},
+    {"id":"q08","query":"joint thought executable code heuristic evolution","relevant":["eoh-2024"]},
+    {"id":"q09","query":"walking robot program mutation Sodarace","relevant":["elm-2022"]},
+    {"id":"q10","query":"archive of high quality solutions along descriptive dimensions","relevant":["mapelites-2015"]},
+    {"id":"q11","query":"RNA folding algorithm temperature annealing","relevant":[]},
+    {"id":"q12","query":"aircraft wing topology optimization mesh refinement","relevant":[]}
+  ]
+}

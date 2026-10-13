@@ -4,6 +4,12 @@ OPENEND studies whether sparse-region targeting helps discover useful, distinct 
 
 **Current status: Phase 1 reopened; literature review corrected and in progress; executable bin-packing pilot available.** This repository does not yet demonstrate validated novel discoveries or a statistically established advantage. See [research specification](docs/research-question.md), [benchmark contract](docs/benchmark-bin-packing.md), and [research log](docs/research-log.md).
 
+**2026-10-13:** [Grounded feedback and isolated diagnostics](docs/grounded-calibration-v2-results.md)
+now enforce executable critic claims in coordinator v2. The fixed local calibration failed
+its critic and target gates; a 1,053-policy training-only audit found no shallow improvement.
+See the [research upgrade plan](docs/research-upgrade-plan.md) for concrete next steps and
+remaining strong-baseline, retrieval and confirmation requirements.
+
 ## Run the pilot
 
 Python 3.11?3.13 is supported by the package; validation so far targets Python 3.11 on Windows. Core evaluation uses the standard library. With uv installed:

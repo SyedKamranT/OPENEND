@@ -1,0 +1,124 @@
+{
+  "scope": "source fidelity only, no generated code execution",
+  "files": [
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/LICENSE",
+      "local_path": "eoh/LICENSE.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "7720014ff3c9115b87cad0113ceb2560298537f02ff6088b5a491cd59b683b79",
+      "ref": "v0.1",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/methods/selection/prob_rank.py",
+      "local_path": "eoh/eoh__src__eoh__methods__selection__prob_rank.py.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "90a85c711a899c82458c64fc13d5d5d2bf682964754941e23fabb7022be2a707",
+      "ref": "v0.1",
+      "upstream_path": "eoh/src/eoh/methods/selection/prob_rank.py"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/methods/management/pop_greedy.py",
+      "local_path": "eoh/eoh__src__eoh__methods__management__pop_greedy.py.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "dfe84a52feeb9101dd89d5f5550d31b986b17db1046377019e753e3ccc858494",
+      "ref": "v0.1",
+      "upstream_path": "eoh/src/eoh/methods/management/pop_greedy.py"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/methods/eoh/eoh.py",
+      "local_path": "eoh/eoh__src__eoh__methods__eoh__eoh.py.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "01ba40a258f61202dc8d736ba76c92a17ab05d98ac3ea1fbaf8efc67f1792ccb",
+      "ref": "v0.1",
+      "upstream_path": "eoh/src/eoh/methods/eoh/eoh.py"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/methods/eoh/eoh_evolution.py",
+      "local_path": "eoh/eoh__src__eoh__methods__eoh__eoh_evolution.py.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "52cef4303c62043e0484f82e77a4ced27eebdea0b6d52572e60f03ae125db455",
+      "ref": "v0.1",
+      "upstream_path": "eoh/src/eoh/methods/eoh/eoh_evolution.py"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/methods/eoh/eoh_interface_EC.py",
+      "local_path": "eoh/eoh__src__eoh__methods__eoh__eoh_interface_EC.py.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "9ee811b1115abc812cd59dc84ff90f264fdba935a858a3bb033e1f5b85a40913",
+      "ref": "v0.1",
+      "upstream_path": "eoh/src/eoh/methods/eoh/eoh_interface_EC.py"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/utils/getParas.py",
+      "local_path": "eoh/eoh__src__eoh__utils__getParas.py.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "53ea7487d279e509d1e22ced0365d31854662afd93af0a367ccba1261b0ba73e",
+      "ref": "v0.1",
+      "upstream_path": "eoh/src/eoh/utils/getParas.py"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/problems/optimization/bp_online/prompts.py",
+      "local_path": "eoh/eoh__src__eoh__problems__optimization__bp_online__prompts.py.txt",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "sha256": "cfdc833c9c38b1d26e6cb640ae984951bf97a9b03f05a412a9b641cadf71ba62",
+      "ref": "v0.1",
+      "upstream_path": "eoh/src/eoh/problems/optimization/bp_online/prompts.py"
+    },
+    {
+      "repo": "google-deepmind/funsearch",
+      "url": "https://raw.githubusercontent.com/google-deepmind/funsearch/cc53f274237d7ab05c19df939edbc1f9616a7c19/LICENSE",
+      "local_path": "funsearch/LICENSE.txt",
+      "commit": "cc53f274237d7ab05c19df939edbc1f9616a7c19",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "ref": "main resolved 2026-10-13",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "repo": "google-deepmind/funsearch",
+      "url": "https://raw.githubusercontent.com/google-deepmind/funsearch/cc53f274237d7ab05c19df939edbc1f9616a7c19/implementation/config.py",
+      "local_path": "funsearch/implementation__config.py.txt",
+      "commit": "cc53f274237d7ab05c19df939edbc1f9616a7c19",
+      "sha256": "bd118e9579e7230d8b1c969a0fc4e10fadcbfa116993c7aadfb988ac4fb500a6",
+      "ref": "main resolved 2026-10-13",
+      "upstream_path": "implementation/config.py"
+    },
+    {
+      "repo": "google-deepmind/funsearch",
+      "url": "https://raw.githubusercontent.com/google-deepmind/funsearch/cc53f274237d7ab05c19df939edbc1f9616a7c19/implementation/programs_database.py",
+      "local_path": "funsearch/implementation__programs_database.py.txt",
+      "commit": "cc53f274237d7ab05c19df939edbc1f9616a7c19",
+      "sha256": "b2bef312d04861f467f304f65788efe959f0493818976b052c46b4703151affc",
+      "ref": "main resolved 2026-10-13",
+      "upstream_path": "implementation/programs_database.py"
+    },
+    {
+      "repo": "google-deepmind/funsearch",
+      "url": "https://raw.githubusercontent.com/google-deepmind/funsearch/cc53f274237d7ab05c19df939edbc1f9616a7c19/implementation/programs_database_test.py",
+      "local_path": "funsearch/implementation__programs_database_test.py.txt",
+      "commit": "cc53f274237d7ab05c19df939edbc1f9616a7c19",
+      "sha256": "da5f3100db5a63c9a4192e64df343213738584f2d5327f7578c6b7af3e05dd0b",
+      "ref": "main resolved 2026-10-13",
+      "upstream_path": "implementation/programs_database_test.py"
+    },
+    {
+      "repo": "google-deepmind/funsearch",
+      "url": "https://raw.githubusercontent.com/google-deepmind/funsearch/cc53f274237d7ab05c19df939edbc1f9616a7c19/implementation/code_manipulation.py",
+      "local_path": "funsearch/implementation__code_manipulation.py.txt",
+      "commit": "cc53f274237d7ab05c19df939edbc1f9616a7c19",
+      "sha256": "8538521e64b0f92a95ee88d0617dd499129a1de19d9502aacba3f109b77f7b3b",
+      "ref": "main resolved 2026-10-13",
+      "upstream_path": "implementation/code_manipulation.py"
+    }
+  ],
+  "retrieved_date": "2026-10-13",
+  "schema_version": 1
+}

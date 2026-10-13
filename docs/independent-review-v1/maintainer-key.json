@@ -1,0 +1,8 @@
+{
+  "case-01": "first_fit_control",
+  "case-02": "threshold_training_witness",
+  "case-03": "best_fit_control",
+  "case-04": "constant_disguise",
+  "case-05": "best_fit_disguise",
+  "case-06": "worst_fit_control"
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "funsearch-database-2023",
+    "title": "FunSearch: program database search mechanics",
+    "source_url": "https://github.com/google-deepmind/funsearch/blob/cc53f274237d7ab05c19df939edbc1f9616a7c19/implementation/programs_database.py",
+    "source_version": "commit cc53f274237d7ab05c19df939edbc1f9616a7c19",
+    "reviewed_date": "2026-10-13",
+    "evidence_scope": "primary source code inspected and hash-pinned locally; limited primitives differentially tested",
+    "note": "FunSearch maintains islands of programs, clusters by per-test score signature, samples clusters with a changing temperature and favors shorter programs within a cluster. Weaker islands are reset from surviving founders. This is a search framework, not a bin-scoring formula. Corpus-relative sparsity weighting must be distinguished from these established diversity mechanisms. No result here reproduces native FunSearch performance."
+  },
+  {
+    "id": "funsearch-or-score-2023",
+    "title": "FunSearch published OR bin-packing piecewise residual scorer",
+    "source_url": "https://github.com/google-deepmind/funsearch/blob/cc53f274237d7ab05c19df939edbc1f9616a7c19/bin_packing/bin_packing.ipynb",
+    "source_version": "commit cc53f274237d7ab05c19df939edbc1f9616a7c19; OR priority cell",
+    "reviewed_date": "2026-10-13",
+    "evidence_scope": "primary released heuristic code read; not executed or independently benchmarked here",
+    "note": "The published OR heuristic maps residual capacity after placement into piecewise score bands. Small residuals receive high priority, while larger bands have nonmonotonic scores rather than a uniform best-fit ranking. Thresholds are expressed in raw item units. This is concrete prior art for thresholded residual bin scoring. Similarity of threshold mechanisms is a review lead, not proof of equivalence to a new policy."
+  },
+  {
+    "id": "funsearch-weibull-score-2023",
+    "title": "FunSearch published Weibull bin-packing aggregate and adjacent-score heuristic",
+    "source_url": "https://github.com/google-deepmind/funsearch/blob/cc53f274237d7ab05c19df939edbc1f9616a7c19/bin_packing/bin_packing.ipynb",
+    "source_version": "commit cc53f274237d7ab05c19df939edbc1f9616a7c19; Weibull priority cell",
+    "reviewed_date": "2026-10-13",
+    "evidence_scope": "primary released heuristic code read; no claimed transfer to OPENEND inputs",
+    "note": "The released Weibull heuristic combines squared remaining capacities, the maximum candidate-bin capacity, and powers of the item size. It changes score signs for nonexact fits and differences neighboring scores. This uses aggregate and cross-bin information unavailable to an independent scalar score based only on the current bin. Giving a restricted port the FunSearch name would hide a representation change."
+  },
+  {
+    "id": "classic-first-fit-1974",
+    "title": "First Fit: earliest feasible open bin",
+    "source_url": "https://epubs.siam.org/doi/abs/10.1137/0203025",
+    "source_version": "SIAM Journal on Computing 3(4), 1974, DOI 10.1137/0203025",
+    "reviewed_date": "2026-10-13",
+    "evidence_scope": "primary article abstract definition reviewed; no new theorem derived",
+    "note": "First Fit processes items in order and chooses the earliest bin that can accommodate each item. OPENEND's constant scoring policies implement this rule because all feasible scores tie and the host selects the earliest bin. A complicated expression that is identically constant on feasible states remains a rediscovery of this behavior."
+  },
+  {
+    "id": "classic-best-fit-1974",
+    "title": "Best Fit: tightest feasible remaining capacity",
+    "source_url": "https://epubs.siam.org/doi/abs/10.1137/0203025",
+    "source_version": "SIAM Journal on Computing 3(4), 1974, DOI 10.1137/0203025",
+    "reviewed_date": "2026-10-13",
+    "evidence_scope": "primary article abstract definition reviewed; host tie convention specified separately",
+    "note": "Best Fit puts the incoming item into the fullest bin in which it fits. On OPENEND feasible states this means minimizing residual capacity, with earliest-index tie breaking supplied by the host. Negative gap and negative remaining-space scores have this ranking. Positive item-to-remaining fraction also favors the smallest feasible remaining space for a fixed positive item. Surface algebraic changes need not create a new heuristic."
+  },
+  {
+    "id": "harmonic-lee-1985",
+    "title": "HARMONIC: item-size classes and separate active bins",
+    "source_url": "https://foreseeable.github.io/AppliedAlgorithmCourseWebsite/BP_harmonic_Lee.pdf",
+    "source_version": "Lee and Lee, JACM 32(3), 1985, section 2; DOI 10.1145/3828.3833",
+    "reviewed_date": "2026-10-13",
+    "evidence_scope": "primary paper section 2 inspected through a public PDF copy; original paraphrase only",
+    "note": "HARMONIC partitions normalized item sizes into reciprocal intervals and maintains an active bin for each class. Each arrival is assigned to its class and packed next-fit within that class. This is an established use of size thresholds and bin categories. OPENEND's host cannot generally express category-specific memory or open a fresh bin when another existing bin is feasible, so this mechanism is not an exact scalar-policy baseline under the current contract."
+  },
+  {
+    "id": "next-fit-definition-2020",
+    "title": "Next Fit and random-order bin-packing evaluation context",
+    "source_url": "https://drops.dagstuhl.de/opus/volltexte/2020/12730/pdf/LIPIcs-MFCS-2020-7.pdf",
+    "source_version": "Albers, Khan and Ladewig, MFCS 2020, section 1, DOI 10.4230/LIPIcs.MFCS.2020.7",
+    "reviewed_date": "2026-10-13",
+    "evidence_scope": "primary paper introduction and algorithm definitions inspected; no claimed replication of bounds",
+    "note": "Next Fit uses the most recently opened bin and opens another when that bin cannot fit the item. Unlike OPENEND, it may leave feasible older bins unused. The paper distinguishes worst-case and random-order performance, reminding us that shuffling synthetic streams does not by itself establish a worst-case competitive guarantee. Best Fit and First Fit are separately defined in the same introduction."
+  }
+]

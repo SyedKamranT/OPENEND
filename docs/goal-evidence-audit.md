@@ -1,4 +1,10 @@
-# Full-goal evidence audit — 2026-10-10
+# Full-goal evidence audit — updated 2026-10-13
+
+Latest: [grounded v2 diagnostics](grounded-calibration-v2-results.md) implement executable
+critic claim enforcement and separate target/representation checks. All three local-model
+gates failed; shallow enumeration found no improvement. See the [upgrade plan](research-upgrade-plan.md)
+for remaining evidence requirements. These updates supersede the corresponding historical
+implementation-status statements below, not the broader missing evidence.
 
 The goal remains active. Prior work is **progress**: source changes, completed local experiments, and verified negative/diagnostic evidence changed the next action. It is not completion of the full discovery architecture.
 
@@ -7,7 +13,7 @@ The goal remains active. Prior work is **progress**: source changes, completed l
 | Identify underrepresented regions | `src/openend/search.py`: distances to three reference signatures | Partial proxy only. Needs a frozen, representative knowledge/solution corpus and calibrated density/coverage diagnostics. |
 | Direct generation toward those regions | `openend.agents` constructs reachable probe-cell witnesses; `openend.coordinator` supplies targets and measures attainment | Engineering implementation present. Witness density is not knowledge density; benefit and generality remain unestablished. |
 | Preserve quality-diverse candidates | Bounded expression policies, executable training evaluator, 6×6 archive, logged selection traces | Implemented for one narrow software domain. Generalized domains and recombination remain incomplete. |
-| Autonomous multi-agent coordination | `openend.coordinator`: serial generator, critic, recombiner, deterministic retrieval and verifier, budget accounting and journal; six-call critic calibration with exact behavior checks | Prototype present, but Qwen 4B critic failed the fixed correctness gate even with full scoring instructions. Tool-grounded claim enforcement, broader role evaluation and full crash-resume remain missing. Older scaffold packages are not the active implementation. |
+| Autonomous multi-agent coordination | `openend.coordinator`: serial roles, retrieval, verifier and shared budgets; v2 adds executable traces and rejection of false critic predictions before recombination | Claim enforcement implemented and tested. Grounded critic passed only 1/3 cases; elementary target-only generation hit 0/3 cells. Broader role validation and full crash-resume remain missing. Older scaffold packages are not the active implementation. |
 | Frozen retrieved knowledge corpus | `openend.corpus` and a content-hashed four-note primary-source seed, alongside the broader literature map | Seed foundation only. Needs broader lawful source evidence, independently evaluated retrieval coverage, algorithm details and leakage controls. |
 | Adversarial prior-art search and reliable novelty labels | Exact syntax/probe screen; complete-domain index-free equivalence checker; local lexical retrieval | Incomplete. Certificates cover three references only; corpus recall, semantic retrieval, adversarial coordination and independently labeled decisions remain missing. |
 | Executable utility validation | Independent packing certificates, reference implementations, frozen splits, replay | Implemented narrow pilot. Strong external algorithm-search comparators, more tasks, fresh holdouts and objective safety/resource limits are still needed for broad claims. |

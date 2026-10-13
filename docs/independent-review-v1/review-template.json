@@ -1,0 +1,59 @@
+{
+  "packet_sha256": "2eef65ea2a496357a1c6c8badf3968a76d6ce12fdeaeec085ea93f1b8ec3297a",
+  "reviewer_id": null,
+  "independent_attestation": null,
+  "conflicts": null,
+  "completed_date": null,
+  "cases": [
+    {
+      "case_id": "case-01",
+      "verdict": null,
+      "reasoning": null,
+      "source_urls": [],
+      "search_log": [],
+      "search_complete": false
+    },
+    {
+      "case_id": "case-02",
+      "verdict": null,
+      "reasoning": null,
+      "source_urls": [],
+      "search_log": [],
+      "search_complete": false
+    },
+    {
+      "case_id": "case-03",
+      "verdict": null,
+      "reasoning": null,
+      "source_urls": [],
+      "search_log": [],
+      "search_complete": false
+    },
+    {
+      "case_id": "case-04",
+      "verdict": null,
+      "reasoning": null,
+      "source_urls": [],
+      "search_log": [],
+      "search_complete": false
+    },
+    {
+      "case_id": "case-05",
+      "verdict": null,
+      "reasoning": null,
+      "source_urls": [],
+      "search_log": [],
+      "search_complete": false
+    },
+    {
+      "case_id": "case-06",
+      "verdict": null,
+      "reasoning": null,
+      "source_urls": [],
+      "search_log": [],
+      "search_complete": false
+    }
+  ],
+  "retrieval_queries": [],
+  "status": "blank_template_not_review_evidence"
+}

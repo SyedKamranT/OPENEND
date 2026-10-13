@@ -1,0 +1,12 @@
+{
+  "version": "baseline-json-v1",
+  "model": "qwen3.5:4b",
+  "seeds": [42],
+  "calls": 24,
+  "tokens": 60000,
+  "max_output_tokens": 512,
+  "per_family": 12,
+  "population_size": 4,
+  "islands": 4,
+  "reset_attempts": 12
+}

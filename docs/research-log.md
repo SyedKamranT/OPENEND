@@ -1,6 +1,52 @@
 # Research log and continuation handoff
 
-Updated: 2026-10-10. **Phase 1 remains reopened and provisional.**
+Updated: 2026-10-13. **Phase 1 remains reopened and provisional.**
+
+## Newest continuation: deeper witness and baseline source fidelity
+
+The [deeper audit](representation-v2-results.md), under its
+[prospective protocol](representation-v2-protocol.md), stopped at proposal 2,566 after
+finding a 1,475-bin training policy versus best-fit's 1,476. This is a one-bin
+expressibility witness, **not** a 1% utility success. No model or holdout calls occurred.
+All saved scores, the plan prefix, stopping decision and 48 packing certificates replayed.
+
+Post-hoc exact-rational audit preserves the 1,475 total, but an algebraically equivalent
+float rewrite uses 1,476 bins: numerical sensitivity must be reported. Preserve
+`results/raw/representation-deep-v2`, `results/raw/numerical-audit-v1`, and
+`results/raw/witness-simplification-v1`. Do not extend the completed search budget.
+
+[Baseline fidelity foundations](baseline-fidelity-v1.md) now pin 13 EoH v0.1/FunSearch
+source/license files and test EoH rank selection/objective-deduplicated survival and
+FunSearch signature/scalar reduction against upstream functions. Full search runners,
+prompts, island/reset fidelity and native-code evaluation remain unfinished. **90 tests
+pass; Ruff passes.** Next finish baseline runners and state-transition fixtures, using
+the training witness as a fixed diagnostic rather than a performance claim. No inference
+was run in this continuation; the failed critic/controllability gates below remain failed.
+
+## Latest continuation: executable evidence and isolated diagnostics
+
+Read [grounded v2 results](grounded-calibration-v2-results.md), the saved
+[prospective protocol](grounded-calibration-v2-protocol.md), and the
+[six-workstream upgrade plan](research-upgrade-plan.md) before the historical entries below.
+
+Implemented `openend.evidence`, a versioned coordinator v2 feedback gate, separate
+critic/target calibration and a finite training-only representation audit. Local Qwen 4B
+completed nine calls, 8,286 tokens, 68.922 request seconds: grounded critic 1/3 accepted,
+target-only 0/3 hits, supplied-witness control 1/3 hits. All three gates failed. Two false
+revision predictions were rejected; none of the revisions improved training bin counts.
+Do not launch a larger coordinator search on the strength of these results.
+
+The 1,053-policy shallow representation audit found no training improvement: best single
+policy and per-instance oracle both used 1,476 bins, tying best-fit. This does not prove
+full-grammar impossibility. Preserve `results/raw/representation-audit-v1` and
+`results/raw/grounded-qwen35-4b-v2`. Both replayed exactly; the old coordinator v1 also
+replayed all 24 role calls. **78 tests pass; Ruff passes.** See the results document for the preserved manifest repair
+and pre-inference startup failures. Qwen was unloaded after the calibration.
+
+Next: a prospectively bounded deeper representation audit; source-pinned EoH/FunSearch
+fidelity work; independently labeled retrieval evaluation; then a fresh confirmatory
+protocol/holdout after development decisions settle. These are unfinished, not silently
+replaced by the completed diagnostics. No superiority or novelty is established.
 
 ## Current direction: local inference
 
