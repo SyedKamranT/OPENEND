@@ -18,11 +18,13 @@ and [current work order](docs/feedback-action-plan-2026-10-25.md).
 | 640 attempts across eight development blocks | All block-mean differences were zero; no equivalence claim |
 | Training witness: 1475 versus BF 1476 bins | Small expressible gain; below the 1% screen of 1461; rewrite sensitivity documented |
 | 512 fixed-parent mutation attempts | No improvement over the best supplied parent; two responses preserved its known gain |
+| 1024 matched operator attempts | Greater reference distance reached on four panels; no 1% utility success |
+| 64 coordinated scoring sketches + 5 controls | All eight local opportunities expressible; broad application regresses; no utility gain |
 | Native baseline fidelity audits | State, evaluator, prompt and probability differences measured; native integration unfinished |
 | Live baseline v2 | 31 starts, 30 saved responses; interrupted, unresolved usage preserved |
 
 Details: [utility trial](docs/utility-runner-v1-results.md), [blocks](docs/development-blocks-v1-results.md),
-[representation](docs/representation-v2-results.md), [proposal diagnostic](docs/parent-opportunity-v1-results.md),
+[representation](docs/representation-v2-results.md), [proposal diagnostic](docs/parent-opportunity-v1-results.md), [operator comparison](docs/operator-comparison-v1-results.md), [coordinated sketches](docs/coordinated-sketch-v1-results.md),
 [fidelity](docs/baseline-fidelity-v4.md), [research log](docs/research-log.md).
 
 ## Run development checks without virtualization

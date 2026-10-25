@@ -2,7 +2,67 @@
 
 Updated: 2026-10-25. **Phase 1 CLOSED under the internally reviewed development scope.**
 
-## Current continuation: virtualization deferred; proposal diagnosis — 2026-10-25
+## Current continuation: matched live feedback pilot — 2026-10-25
+
+Completed [12 local Qwen 4B calls](feedback-proposal-v1-results.md) under a frozen protocol:
+no examples vs beneficial only vs beneficial plus harmful; two fixed parents and two
+matched seeds, same grammar/settings/revision limits. All 12 valid and in bounds, zero
+accepted parent improvements. Selected totals retain BF 1476 or witness 1475 in every
+condition. Raw regressions 3/4, 4/4, 3/4; actual tokens 2657/3020/3613. No 1% success.
+Do not infer general feedback ineffectiveness or a weighting effect from this small pilot.
+
+Exact saved-response replay matched; 576 full certificates, assignment digests and legal
+host actions independently verified. All started calls resolved; no unknown usage or
+retries. 149 tests passed, two optional numerical modules skipped; Ruff clean. No native
+execution, virtualization changes, downloads or fresh evaluation access.
+
+Next priority: reviewed published nonlinear scoring controls under a separately frozen
+diagnostic. No feedback procedure is promoted. Future feedback work must explicitly
+address common-intervention anchoring and restrictive edit scope; no outcome-selected
+extension of this run. Milestones remain 1475 improvement, 1461/family screen, fresh
+development replication, then matched weighting attribution.
+
+## Historical continuation: coordinated scoring diagnosis — 2026-10-25
+
+Read the owner's additional external-chat feedback and executed the predeclared
+[64-sketch representation/proposal diagnostic](coordinated-sketch-v1-results.md) plus
+five controls. Twelve sketches satisfy the current generator grammar; all satisfy the
+unchanged production interpreter. No sketch beats BF (1476) or the supplied incumbent
+(1475); no 1% screen passes. An eligible residual rule corrects all eight saved beneficial
+states but causes 67 harmful BF-state choices and uses 1545 bins in full execution.
+This isolates local expressibility from selective application and trajectory regressions.
+Do not claim a representation ceiling or promote a language extension from this result.
+
+Exact replay and hashes verified, 3312 full packing certificates and all host actions
+independently checked. No model calls, new evaluation splits, native execution or
+virtualization changes. Next: separately specify failure-informed selective proposals
+with beneficial AND harmful examples; reviewed published nonlinear controls remain
+pending. Keep method attribution separate from representation and proposal changes.
+Validation: 146 tests passed, two optional numerical audit modules skipped, Ruff clean.
+
+## Historical continuation: matched operators and joint reach/utility — 2026-10-25
+
+Owner requested a defensible improvement toward 1% and sparse-region reach. Executed
+[matched proposal comparison](operator-comparison-v1-results.md), 1024 attempts.
+Single-token mutation eliminates invalids and literal copies but produces fewer distinct
+policies; neither operator beats the supplied 1475-bin incumbent or passes the 1% screen.
+Both reach beyond all fixed-parent reference-distance thresholds across four panels
+(49/29 attempts). No joint useful-success/reach outcome. This separates measurable
+behavioral reach from useful improvement instead of declaring distance itself success.
+
+Post-hoc max(gap,fraction) candidate matches BF's 1476 bins and family totals while
+exceeding all panel thresholds. All 48 packing certificates checked; keep this as a
+training-selected exploratory candidate, not a new useful or novel discovery. All 1024
+records reproduced exactly. No model calls, native execution or evaluation/holdout access.
+Validation: 144 tests passed, two optional numerical modules skipped (19.70s), Ruff
+clean. Their six tests passed separately in the bundled runtime earlier this day.
+
+Next: predeclare a representation/coordinated-change diagnosis before more search.
+A quality-constrained exploration hypothesis must separate quality eligibility and
+reference weighting in a matched factorial comparison. Do not silently replace the
+locked baseline or increase budgets until a positive result appears.
+
+## Historical continuation: virtualization deferred; proposal diagnosis — 2026-10-25
 
 Owner requested deferring firmware/Docker enablement and acting on external-chat
 feedback. [Assessment and work order](feedback-action-plan-2026-10-25.md) keeps native
