@@ -1,78 +1,73 @@
 # OPENEND
 
-OPENEND studies whether sparse-region targeting helps discover useful, distinct solutions beyond matched quality-diversity search.
+OPENEND studies whether fixed-reference behavioral-distance parent weighting improves
+training-selected online bin-packing policies over otherwise matched uniform selection.
+Utility, behavioral diversity and prior-art novelty are separate outcomes.
 
-**Current status: Phase 1 reopened; literature review corrected and in progress; executable bin-packing pilot available.** This repository does not yet demonstrate validated novel discoveries or a statistically established advantage. See [research specification](docs/research-question.md), [benchmark contract](docs/benchmark-bin-packing.md), and [research log](docs/research-log.md).
+**Current status (2026-10-25): Phases 1–3 closed for their documented development scope;
+Phase 4 open.** Virtualization/native execution is deferred at the owner's request.
+No useful weighting advantage or independently validated novel discovery is established.
+See the [research lock](docs/research-lock-v1.md), [Phase 4 acceptance](docs/phase4-acceptance-v1.md)
+and [current work order](docs/feedback-action-plan-2026-10-25.md).
 
-**2026-10-13:** [Grounded feedback and isolated diagnostics](docs/grounded-calibration-v2-results.md)
-now enforce executable critic claims in coordinator v2. The fixed local calibration failed
-its critic and target gates; a 1,053-policy training-only audit found no shallow improvement.
-See the [research upgrade plan](docs/research-upgrade-plan.md) for concrete next steps and
-remaining strong-baseline, retrieval and confirmation requirements.
+## Evidence so far
 
-## Run the pilot
+| Evidence | Supported conclusion |
+|---|---|
+| 240 offline utility attempts | Weighting changed parents in 35/120 paired positions; all runs selected Best Fit fallback |
+| 640 attempts across eight development blocks | All block-mean differences were zero; no equivalence claim |
+| Training witness: 1475 versus BF 1476 bins | Small expressible gain; below the 1% screen of 1461; rewrite sensitivity documented |
+| 512 fixed-parent mutation attempts | No improvement over the best supplied parent; two responses preserved its known gain |
+| Native baseline fidelity audits | State, evaluator, prompt and probability differences measured; native integration unfinished |
+| Live baseline v2 | 31 starts, 30 saved responses; interrupted, unresolved usage preserved |
 
-Python 3.11?3.13 is supported by the package; validation so far targets Python 3.11 on Windows. Core evaluation uses the standard library. With uv installed:
+Details: [utility trial](docs/utility-runner-v1-results.md), [blocks](docs/development-blocks-v1-results.md),
+[representation](docs/representation-v2-results.md), [proposal diagnostic](docs/parent-opportunity-v1-results.md),
+[fidelity](docs/baseline-fidelity-v4.md), [research log](docs/research-log.md).
 
-```powershell
-uv sync --locked --all-extras --cache-dir .cache/uv
-.venv\Scripts\python.exe -m pytest -q --basetemp .cache/test-tmp
-.venv\Scripts\openend.exe run --config configs/pilot.json --backend offline --output results/raw/my-offline-run
-.venv\Scripts\openend.exe verify results/raw/my-offline-run
-.venv\Scripts\openend.exe replay results/raw/my-offline-run
-```
+## Run development checks without virtualization
 
-Use a new output directory for each run. Existing artifacts are never overwritten. On POSIX systems, executables are under `.venv/bin/`.
-
-The offline backend is a deterministic tree-mutation control. **Current research uses local Ollama inference**, as authorized on 2026-10-10. Start with an already installed model:
-
-```powershell
-.venv\Scripts\openend.exe run --config configs/local_refined_pilot.json --backend local --structured --model qwen3.5:9b --output results/raw/my-refined-local-run
-```
-
-See the [hardware assessment and local experiment plan](docs/local-model-plan.md). This uses a loopback-only endpoint, an 8K context, and no cloud credentials. Each paired comparison holds the model and inference settings constant. Run one model at a time.
-
-The [first connected Qwen 9B pilot](docs/local-qwen35-9b-results.md) completed 24 attempts with 14 valid policies. No paired parent choices differed, so its equal outcomes do not establish treatment equivalence. See the research log for the calibration steps still needed.
-
-The [refined protocol](docs/refined-pilot-protocol.md) adds schema-constrained generation, longer fixed runs, and selection diagnostics. Read [refinement findings](docs/refinement-findings.md) for completed results and remaining limitations, including the original probe panel's lack of exact-fit cases. Reproduce scores and parent-selection traces with `openend replay RUN`.
-
-The subsequent [v3 representation protocol](docs/probes-v3-protocol.md) uses `configs/local_probes_v3.json` with the same local/structured flags. It combines legacy and training-derived probes and preserves older-run replay. The [full-goal evidence audit](docs/goal-evidence-audit.md) tracks unfinished discovery-system requirements. [Verifier and corpus foundations](docs/verifier-and-corpus-foundation.md) provide separate conservative equivalence audits and a small frozen source-note retriever; neither certifies global novelty.
-
-The legacy cloud backend remains available for reproducibility, but is not part of the current plan:
+Python 3.11–3.13 is supported. The original `.venv` pointed to a removed Python 3.11
+installation; `.venv-research` is the replacement built from the unchanged dependency lock.
+With uv and an installed supported Python:
 
 ```powershell
-.venv\Scripts\openend.exe doctor --env .env
-.venv\Scripts\openend.exe run --config configs/api_pilot.json --backend api --output results/raw/my-api-run
+$env:UV_PROJECT_ENVIRONMENT = '.venv-research'
+uv sync --locked --all-extras --python 3.13 --cache-dir .cache/uv
+.venv-research/Scripts/python.exe -m pytest -q --basetemp .cache/test-current
+.venv-research/Scripts/python.exe -m openend.utility_runner replay results/raw/utility-offline-v1
+.venv-research/Scripts/python.exe -m openend.parent_opportunity results/raw/parent-opportunity-reproduction
 ```
 
-The API pilot permits at most 24 requests (three seeds ? two arms ? four attempts), each capped at 2,048 output tokens or a lower `.env` limit. A shared per-arm token allowance is also enforced, with unknown usage/overruns marked incomplete. It uses the model/deployment already specified in `.env`; no model is silently substituted. API failures are retained and terminal errors disable further requests within that run.
+Use a new output directory for each experiment. Raw artifacts are local and ignored by
+Git; preserve them when moving the project. Optional NumPy/SciPy audit tests require those
+packages and otherwise skip explicitly. They are separate from core standard-library evaluation.
 
-Copy `.env.example` to `.env` only when creating a new configuration; preserve any existing credentials. `doctor` prints presence booleans, never keys. API calls use the Responses API with no server-side storage requested. For Azure API-key authentication, configure a matching resource endpoint and key. HTTP 401 indicates authentication is unresolved; an incomplete comparison is not a research result.
+The active JSON track interprets bounded expressions as data and does not need Docker.
+Native EoH/FunSearch requires verified contained Python execution; see [setup status](docs/native-environment-setup-v1.md).
+Do not execute `native_runtime/worker.py` with generated code directly on the host.
+Local-only inference remains the plan; the legacy cloud backend is retained for historical
+reproduction, not selected by this continuation. Never overwrite existing credentials.
 
-## What the implementation measures
+## Design and claim boundaries
 
-Both arms share one 6?6 QD archive design, generation/mutation operator, budget, reference set, probe panel, evaluator, and train/validation/test inputs. The only treatment is uniform versus reference-relative sparse parent sampling. The generator cannot access held-out instances or feedback.
+Both primary arms share grammar, model/digest, probes, archive, replacement, selection,
+stopping and allowances; only parent probabilities differ. Total training bins govern
+selection, with earliest generated ties and best-reference fallback. Selection precedes
+development evaluation. Public/reused splits are development data, not fresh confirmation.
 
-The benchmark includes four synthetic stream distributions and independent first-fit, best-fit, and worst-fit references. Candidate expressions are bounded JSON data, never executable Python. A separate certificate checker verifies complete feasible packings. See [protocol](docs/experimental-protocol.md) for the exact grammar, fitness, stopping, and accounting rules.
+The 1% aggregate / 5% family utility screen remains fixed. Frozen probe distance is not
+semantic equivalence or scientific novelty. Unsupported novelty judgments remain unresolved.
+Final inferential calibration and access-controlled fresh data belong to Phase 13.
 
-Reported outcomes include held-out bin counts, coverage, duplicates, syntax/probe diversity, utility-success screens, and measured API usage. All non-reference novelty judgments remain unresolved. Novel-Success Rate is `null` until independent prior-art assessment exists; probe distance does not establish invention.
+## Layout
 
-## Artifacts and layout
+- `src/openend/`, `tests/`: implementation and executable checks.
+- `configs/`, `data/`: protocols, source pins and development definitions.
+- `results/raw/`: local immutable-per-run evidence, including failures.
+- `docs/`: decisions, results, limitations and continuation handoff.
+- `paper/`: evolving study manuscript; no superiority claim.
+- `native_runtime/`: unverified native execution scaffolding pending containment tests.
 
-- `src/openend/`: actual package, evaluator, policy interpreter, QD search, API adapter, runner, CLI.
-- `configs/pilot.json`, `configs/api_pilot.json`: shared validated configurations. Older YAML files are superseded pointers, not executable full-system configurations.
-- `data/benchmark/binpack-pilot-v1/`: reproducible development inputs and reference scores.
-- `results/raw/`: ignored local runs, including failed runs; each has manifests, events, results, and a source snapshot.
-- `docs/`: current protocol, reviewed literature, limitations, and historical review.
-- `paper/`: proposal manuscript and corrected bibliography; no unsupported result claims.
-- `uv.lock`: resolver-generated runtime/API/dev dependency lock; `requirements.lock`: hashed export.
-
-Source snapshots explicitly exclude credentials. Output-file hashes are tamper-evidence against a local manifest, not externally immutable storage. Replaying saved candidates is distinct from obtaining identical fresh responses from a hosted model.
-
-## Research milestones
-
-[phases.md](phases.md) supplies the canonical numbering. Phase 1 remains open while novelty adjudication, a broader corpus, strong comparator implementations, sample-size justification, and a fresh confirmatory holdout are unresolved. Phase 2 is a source-verified map in progress. The Phase 3 pilot evaluator is implemented to make calibration possible. Broader agents, independent novelty verification, expert studies, and confirmatory experiments remain future work.
-
-Negative and inconclusive outcomes are preserved and publishable when methodologically sound. [Review and repair rationale](docs/research-review-2026-10-08.md).
-
-The [completed offline pilot report](docs/pilot-results.md) records 400 attempts across five paired seeds with no selected-test performance improvement from sparse targeting. The latest [local coordinator trial](docs/coordinator-v1-results.md) adds generator/critic/recombiner roles and conventional-generation/retrieval controls: 24 completed calls, no utility successes, and 0/4 target hits. See the [diagnosis and next calibration](docs/coordinator-diagnostics.md) and [research log](docs/research-log.md). Phase 1 remains open; inference is local only.
+[Canonical roadmap](phases.md). Historical results and locks are retained; internal
+review acceptance does not imply independent novelty validation.

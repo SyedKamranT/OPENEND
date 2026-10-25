@@ -1,8 +1,30 @@
 # Research log and continuation handoff
 
-Updated: 2026-10-16. **Phase 1 CLOSED under the internally reviewed development scope.**
+Updated: 2026-10-25. **Phase 1 CLOSED under the internally reviewed development scope.**
 
-## Current continuation: Phase 4 native environment recovery — 2026-10-16
+## Current continuation: virtualization deferred; proposal diagnosis — 2026-10-25
+
+Owner requested deferring firmware/Docker enablement and acting on external-chat
+feedback. [Assessment and work order](feedback-action-plan-2026-10-25.md) keeps native
+Phase 4 obligations open while advancing JSON-only diagnostics. No model calls or
+native execution. The old Python 3.11 installation disappeared; restored unchanged
+locked dependencies into `.venv-research` using installed Python 3.13.2.
+
+[Fixed-parent opportunity assay](parent-opportunity-v1-results.md): 512 attempts,
+499 valid, 228 unique evaluated policies. No proposal improves the best supplied
+parent; two preserve the existing 1475-bin witness. Reference-relative mixture gains
+must not be mistaken for discovery because the witness is already supplied. All
+responses/scores and hashes reproduce exactly. 143 tests pass, two optional numerical
+audit modules skip in the new environment; all six optional tests passed separately
+in the bundled numerical runtime. Ruff clean. PDF compilation remains unverified.
+README/manuscript now match
+the narrower accepted question, completed development and unresolved scientific claims.
+
+Next: predeclare a matched structurally conservative proposal-operator diagnostic with
+copies separated and best-supplied-parent improvement as endpoint; keep allowances and
+1% success criteria fixed. Virtualization resumes only when the owner is ready.
+
+## Historical continuation: Phase 4 native environment recovery — 2026-10-16
 
 Owner requested full Phase 4 closure and authorized the best available local isolation
 environment. Selected per-user Docker Desktop with WSL2. Official installer download

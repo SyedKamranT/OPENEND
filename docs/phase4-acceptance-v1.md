@@ -1,6 +1,10 @@
 # Phase 4 acceptance review — 2026-10-16
 
 **Overall status: OPEN. Adapted-baseline engineering acceptance: PASS.**
+
+2026-10-25 owner direction: virtualization/native execution deferred temporarily.
+Proceed with [proposal diagnosis and evidence corrections](feedback-action-plan-2026-10-25.md);
+native requirements are retained.
 The Phase 1 research lock assigns native EoH/FunSearch reproduction and containment to
 Phase 4. These requirements are retained; this review is not a scope reduction.
 

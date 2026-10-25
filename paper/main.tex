@@ -2,22 +2,39 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,booktabs,hyperref,natbib,geometry}
 \geometry{margin=1in}
-\title{OPENEND: A Proposal for Controlled Sparse-Region Exploration}
+\title{OPENEND: A Controlled Study of Reference-Distance Parent Selection}
 \author{Authorship pending}
 \date{October 2026 --- proposal, not a completed empirical paper}
 \begin{document}
 \maketitle
 \begin{abstract}
-We propose a controlled study of whether reference-relative sparse-region targeting adds value to otherwise matched quality-diversity search. The initial executable testbed searches a bounded expression language for online bin-packing policies. Both arms share generation, archive design, resource allowances, and evaluation; only parent-selection weights differ. Objective utility, behavioral diversity, and scientific novelty are treated as separate outcomes. The current reference screen cannot establish positive novelty and returns unresolved judgments for non-reference policies. Confirmatory experiments, a broader prior-art corpus, and independent mechanism-level adjudication remain future work. No superiority or validated-discovery claim is made in this proposal.
+We study whether fixed-reference behavioral-distance parent weighting improves training-selected utility over otherwise matched uniform parent selection. The initial executable testbed searches a bounded expression language for online bin-packing policies. Both arms share generation, archive design, resource allowances, and evaluation; only parent-selection weights differ. Objective utility, behavioral diversity, and scientific novelty are treated as separate outcomes. The current reference screen cannot establish positive novelty and returns unresolved judgments for non-reference policies. Confirmatory experiments, a broader prior-art corpus, and independent mechanism-level adjudication remain future work. No superiority or validated-discovery claim is made in this proposal.
 \end{abstract}
 \section{Research Question}
-Does sparse-region targeting improve independently validated discovery yield over matched quality-diversity search? The present pilot examines a narrower behavioral-policy version of this question.
+Does fixed-reference behavioral-distance parent weighting improve the utility of training-selected policies over uniform parent selection at matched allowances? Independently validated discovery yield remains a broader, untested aspiration.
 \section{Related Work}
 Novelty search and MAP-Elites establish explicit exploration and quality-diversity objectives \citep{lehman2011abandoning,mouret2015illuminating}. ELM and LLMatic already combine language models with QD \citep{lehman2022elm,nasir2023llmatic}. FunSearch and AlphaEvolve maintain program diversity during executable search \citep{romera2024mathematical,alphaevolve2025}. EoH and BehaveSim are close comparators for heuristic design and behavioral similarity \citep{liu2024eoh,zhang2026behavesim}. Independent novelty measurement needs evidence-based evaluation \citep{novelty2025sdp,rqbench2026}.
 \section{Pilot Method}
 A common bounded JSON policy language, reference corpus, probe panel, and QD archive are used in both arms. Parent sampling is uniform or weighted by reference-relative behavioral sparsity. Full definitions and budgets are versioned in the repository protocol.
 \section{Evaluation and Evidence Status}
 Pilot outcomes must be generated from recorded artifacts. Any engineering results are descriptive and do not establish the primary novelty hypothesis. An unresolved novelty verdict is not converted into a positive label. Failed and incomplete comparisons are preserved.
+\subsection{Development evidence as of 25 October 2026}
+Phases 1--3 are closed for their documented development scope; baseline implementation
+in Phase 4 remains open. A 240-attempt offline utility trial changed parents at 35 of
+120 paired positions, but all runs selected the Best Fit fallback. A separate 640-attempt
+trial across eight development blocks produced zero block-mean differences; this is
+not equivalence evidence. A training-only expression used 1475 bins versus Best Fit's
+1476, below the fixed 1\% screen (1461 bins), and was sensitive to algebraic rewriting
+under floating-point execution. A fixed-parent, common-seed assay of 512 mutations
+found no improvement over its best supplied parent; two proposals merely retained that
+known gain. All these are development diagnostics, not confirmatory estimates.
+
+Native baseline audits identify action-space, prompt and sampling-scale differences
+from the JSON adaptations. The latest live baseline attempt is incomplete (31 starts,
+30 saved responses); unknown usage and missing arms are preserved. Virtualization is
+currently deferred, and generated Python containment has not been validated. These
+limits preclude native-comparator superiority claims. Artifact pointers and prospective
+protocols are maintained in the repository research log.
 \section{Limitations}
 The policy language excludes general code generation, the instance distributions are synthetic, and the reference set is small. Fixed-probe distances are not algorithmic-equivalence proofs. Hosted-model training contamination and stochasticity are not eliminated by retrieval restrictions or local seeds. Generalization and practical effect margins require further study.
 \section{Research Integrity}

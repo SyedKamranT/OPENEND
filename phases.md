@@ -1,3 +1,5 @@
+> **Current sequencing, 2026-10-25:** Phases 1–3 closed; Phase 4 open. Native execution deferred by owner; JSON proposal diagnostics and evidence corrections proceed. [Work order](docs/feedback-action-plan-2026-10-25.md).
+
 > **Active order, 2026-10-15:** Phases 1–3 CLOSED → Phase 4 baseline implementation/protocol preparation (active). Existing baseline work is preserved. [Phase 3 closure](docs/phase3-closure-v1.md). Large comparative experiments require prospective signal justification; confirmation remains Phase 13. This order supersedes historical next-step notes below.
 
 > **Current continuation (2026-10-15): Phase 1 CLOSED.** The owner accepted internal review and removed external review as a progression condition. [Research lock v1](docs/research-lock-v1.md) and [closure audit](docs/phase1-closure-audit.md) govern the nine design decisions. Active work advances to literature/benchmark/baseline development (Phases 2–4); confirmatory experiments remain Phase 13 work. Historical plans below do not override this lock.
