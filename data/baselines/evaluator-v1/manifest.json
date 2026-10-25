@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "retrieved_date": "2026-10-15",
+  "scope": "Read-only evaluator audit; upstream licenses retained in ../upstream-v1",
+  "files": [
+    {
+      "repo": "FeiLiu36/EoH",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "upstream_path": "eoh/src/eoh/problems/optimization/bp_online/run.py",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/problems/optimization/bp_online/run.py",
+      "local_path": "EoH__eoh__src__eoh__problems__optimization__bp_online__run.py.txt",
+      "sha256": "852dd811059e93904984a3b55f48682ec9f376bbbe36cc98108597ff537a4cc3"
+    },
+    {
+      "repo": "FeiLiu36/EoH",
+      "commit": "4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "upstream_path": "eoh/src/eoh/problems/optimization/bp_online/get_instance.py",
+      "url": "https://raw.githubusercontent.com/FeiLiu36/EoH/4b2338fc2317c743cec50c5c7a2e4684707af973/eoh/src/eoh/problems/optimization/bp_online/get_instance.py",
+      "local_path": "EoH__eoh__src__eoh__problems__optimization__bp_online__get_instance.py.txt",
+      "sha256": "148bec47e14607307f981b0460c360e70e7843feb2f88ba463f14f9d477777ca"
+    },
+    {
+      "repo": "google-deepmind/funsearch",
+      "commit": "cc53f274237d7ab05c19df939edbc1f9616a7c19",
+      "upstream_path": "bin_packing/bin_packing.ipynb",
+      "url": "https://raw.githubusercontent.com/google-deepmind/funsearch/cc53f274237d7ab05c19df939edbc1f9616a7c19/bin_packing/bin_packing.ipynb",
+      "local_path": "funsearch__bin_packing__bin_packing.ipynb.txt",
+      "sha256": "eec45846a8661722addbb856179327cf2ede0bc502e32be4ad58a6ac54e0aca6"
+    }
+  ]
+}

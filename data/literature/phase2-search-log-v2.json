@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-15",
+  "provenance": "Internal targeted web review, not independent review",
+  "previous_search_log": "phase2-mechanism-review-v1.json",
+  "queries": [
+    {
+      "query": "MEoH multi objective evolution heuristics dominance dissimilarity Yao 2025",
+      "disposition": "MEoH primary paper/publication; HSS-MEoH lead"
+    },
+    {
+      "query": "Language Model Crossover LMX Meyerson 2023 arxiv",
+      "disposition": "LMX author manuscript and official repository"
+    },
+    {
+      "query": "\"fixed reference\" \"parent selection\" \"novelty\"",
+      "disposition": "No exact-equivalence conclusion; terminology is not exhaustive coverage"
+    },
+    {
+      "query": "\"BehaveSim\" \"algorithm\" 2026",
+      "disposition": "Primary arXiv and venue PDF leads"
+    },
+    {
+      "query": "Evolution of Heuristics 2024 Liu pmlr",
+      "disposition": "Verified ICML metadata; inspected arXiv v3 and existing pinned code"
+    },
+    {
+      "query": "\"In-context QD\" 2025 2026 arxiv",
+      "disposition": "Primary work recovered; no absence claim for later work"
+    },
+    {
+      "query": "\"ACES\" \"quality diversity\" 2025 2026",
+      "disposition": "Primary ACES and ACES-SeqPlan lead; follow-up task-generation extension outside primary policy contrast"
+    },
+    {
+      "query": "\"novelty weighted\" \"parent selection\" heuristic",
+      "disposition": "ShinkaEvolve and HSS-MEoH; inspected primary sources"
+    },
+    {
+      "query": "\"ShinkaEvolve\" \"BehaveSim\"",
+      "disposition": "Secondary indexes/leads; no additional technical claim admitted"
+    },
+    {
+      "query": "\"fixed-reference\" \"behavioral\" \"search\" LLM",
+      "disposition": "Broad mixed-domain results; no absence inference"
+    },
+    {
+      "query": "\"reference distance\" \"parent selection\"",
+      "disposition": "Objective-space/reference-direction and unrelated hits; not evidence of algorithmic novelty"
+    }
+  ],
+  "citation_chains": [
+    {
+      "from": "BehaveSim Appendix E.2",
+      "to": "MEoH",
+      "status": "Methods and algorithm appendix inspected"
+    },
+    {
+      "from": "In-context QD related work",
+      "to": "LMX",
+      "status": "Section 3 and Algorithm 1 inspected"
+    },
+    {
+      "from": "ShinkaEvolve selection discussion",
+      "to": "Darwin Godel Machine",
+      "status": "Appendix A.2–A.4 inspected"
+    },
+    {
+      "from": "ELM and In-context QD",
+      "to": "MAP-Elites",
+      "status": "Method and sampling comparison inspected"
+    }
+  ],
+  "forward_search": "Date-qualified title and mechanism searches; reviewed ShinkaEvolve and Loreley as later related methods. Not a complete citation-index export.",
+  "access_notes": [
+    "ELM HTML v3 unavailable; PDF identifies v1",
+    "EoH HTML v1 has earlier title; v3 inspected for named EoH paper",
+    "PMLR PDF retrieval unavailable; publication metadata plus arXiv v3 and pinned code used",
+    "MAP-Elites HTML header date conflicts with arXiv v1 identifier; use 2015 identifier",
+    "HSS-MEoH is README-level evidence with no commit pin; not treated as a verified published result"
+  ],
+  "boundary": {
+    "kind": "Retrospectively documented targeted-review stop; not a preregistered systematic search",
+    "include": "Mechanisms directly relevant to frozen parent selection, LLM variation, QD retention, target generation and fair evaluation; primary-source evidence required for assertions",
+    "stop": "Close the named method set and direct mechanism-changing citation leads; record remaining unknowns and remove claims that would require them. Do not claim saturation or exhaustive absence.",
+    "defer": "Full replications and code pinning of additional comparators to Phase 4; broad discovery-workflow surveys outside the frozen primary contrast; verifier calibration to Phase 6",
+    "reopen_trigger": "New evidence contradicts the retained question/comparator obligations, or a new broader originality/superiority claim is proposed. Updating literature does not invalidate Phase 1."
+  }
+}

@@ -42,3 +42,18 @@ Nested syntax example: {"expression":["add",["neg","gap"],["mul",0.5,"exact_fit"
 Each binary operator takes exactly two arguments; each unary operator takes exactly one.
 Return a small variation of the supplied parent. These examples explain syntax, not quality.
 """
+
+
+def validate_proposal_policy(policy):
+    """Enforce the advertised finite grammar independently of backend constraints."""
+
+    def finite(node, depth):
+        if isinstance(node, str):
+            return node in FEATURES
+        if type(node) in (int, float):
+            return node in (-2, -1, -0.5, 0, 0.5, 1, 2)
+        return depth > 0 and all(finite(child, depth - 1) for child in node[1:])
+
+    if not finite(policy.to_object()["expression"], 4):
+        raise ValueError("outside finite proposal grammar")
+    return policy

@@ -1,0 +1,210 @@
+{
+  "packet_sha256": "2eef65ea2a496357a1c6c8badf3968a76d6ce12fdeaeec085ea93f1b8ec3297a",
+  "reviewer_id": "model-gemini-3.8-flash-high",
+  "reviewer_type": "automated_frontier_model_audit",
+  "independent_attestation": false,
+  "conflicts": "Automated LLM audit by Gemini 3.8 Flash (High). Operates as an external model-based verification baseline; does not substitute for independent human expert review required by Phase 1 closure criteria.",
+  "completed_date": "2026-10-13",
+  "cases": [
+    {
+      "case_id": "case-01",
+      "verdict": "known_reference",
+      "reasoning": "Expression is constant 0. Every feasible candidate bin receives an identical score of 0.0. Under the environment contract tie-breaking rule ('earliest feasible bin with maximal score'), any arriving item is placed in the earliest open feasible bin. This behavior is mathematically identical to First Fit (FF).",
+      "source_urls": [
+        "https://doi.org/10.1016/S0022-0000(74)80026-7",
+        "https://en.wikipedia.org/wiki/First-fit_bin_packing"
+      ],
+      "matched_corpus_ids": [
+        "classic-first-fit-1974"
+      ],
+      "search_log": [
+        "Analyzed contract tie-breaking logic for uniform scores across feasible bins.",
+        "Verified equivalence against Johnson (1974) First Fit algorithm definition."
+      ],
+      "search_complete": true
+    },
+    {
+      "case_id": "case-02",
+      "verdict": "no_equivalent_found_in_scope",
+      "reasoning": "Expression is add(neg(gap), max(mul(item, sub(remaining, gap)), gap)). Under normalized feature definitions where remaining - gap = item, the inner term mul(item, sub(remaining, gap)) simplifies algebraically to item^2. The total score evaluates to -gap + max(item^2, gap). For tightly fitting bins where gap < item^2, the score simplifies to item^2 - gap, which acts as Best Fit (preferring minimal gap). For loose bins where gap >= item^2, the score cancels to 0.0, defaulting to First Fit via earliest-bin tie breaking. While structurally related to piecewise nonlinear residual scorers discovered in FunSearch (Romera-Paredes et al. 2024), this exact closed-form thresholded Best-Fit/First-Fit switching mechanism does not match any of the 11 records in the frozen corpus or classical textbook references.",
+      "source_urls": [
+        "https://doi.org/10.1038/s41586-023-06924-6"
+      ],
+      "matched_corpus_ids": [],
+      "search_log": [
+        "Evaluated algebraic cancellation: remaining - gap = item, mul(item, item) = item^2.",
+        "Traced behavior under gap < item^2 (Best Fit) versus gap >= item^2 (collapse to 0 / First Fit).",
+        "Queried frozen corpus notes for piecewise thresholded formulas; confirmed absence of this exact formulation."
+      ],
+      "search_complete": true
+    },
+    {
+      "case_id": "case-03",
+      "verdict": "known_reference",
+      "reasoning": "Expression is neg(gap) (-gap). The host maximizes score, which is strictly equivalent to minimizing gap = (remaining - item)/100. Minimizing gap over feasible bins places the arriving item in the bin with the smallest remaining capacity that can accommodate it. This is the exact definition of Best Fit (BF).",
+      "source_urls": [
+        "https://doi.org/10.1016/S0022-0000(74)80026-7",
+        "https://en.wikipedia.org/wiki/Best-fit_bin_packing"
+      ],
+      "matched_corpus_ids": [
+        "classic-best-fit-1974"
+      ],
+      "search_log": [
+        "Checked score maximization of negative gap against classical Best Fit heuristic definition."
+      ],
+      "search_complete": true
+    },
+    {
+      "case_id": "case-04",
+      "verdict": "known_reference",
+      "reasoning": "Expression is mul(gap, exact_fit). In the environment contract, exact_fit is 1 if and only if remaining == item, which implies gap = 0. When exact_fit is 1, gap is 0, so score is 0 * 1 = 0. When exact_fit is 0, score is gap * 0 = 0. Therefore, the score is identically 0.0 for every feasible bin under all states. By the earliest-bin tie-breaking rule, it always selects the earliest feasible bin, behaving identically to First Fit.",
+      "source_urls": [
+        "https://doi.org/10.1016/S0022-0000(74)80026-7"
+      ],
+      "matched_corpus_ids": [
+        "classic-first-fit-1974"
+      ],
+      "search_log": [
+        "Proved algebraic collapse to identically 0.0 across all feasible bins.",
+        "Verified resulting tie-breaking defaults to First Fit."
+      ],
+      "search_complete": true
+    },
+    {
+      "case_id": "case-05",
+      "verdict": "known_reference",
+      "reasoning": "Expression is div(item, remaining) (fraction). For a fixed arriving item, item > 0 is constant across all candidate bins. Maximizing item / remaining is strictly monotonic with minimizing remaining capacity among feasible bins. Selecting the feasible bin with minimal remaining capacity is mathematically identical to Best Fit.",
+      "source_urls": [
+        "https://doi.org/10.1016/S0022-0000(74)80026-7"
+      ],
+      "matched_corpus_ids": [
+        "classic-best-fit-1974"
+      ],
+      "search_log": [
+        "Analyzed monotonic equivalence between maximizing item/remaining and minimizing remaining.",
+        "Confirmed exact behavioral identity with Best Fit."
+      ],
+      "search_complete": true
+    },
+    {
+      "case_id": "case-06",
+      "verdict": "known_reference",
+      "reasoning": "Expression is gap = (remaining - item)/100. Maximizing gap over all feasible candidate bins places the item into the bin with the largest remaining capacity after packing. This is the exact definition of Worst Fit (WF).",
+      "source_urls": [
+        "https://doi.org/10.1016/S0022-0000(74)80026-7",
+        "https://en.wikipedia.org/wiki/Worst-fit_bin_packing"
+      ],
+      "matched_corpus_ids": [],
+      "search_log": [
+        "Confirmed maximization of residual space corresponds to classical Worst Fit algorithm."
+      ],
+      "search_complete": true
+    }
+  ],
+  "retrieval_queries": [
+    {
+      "query_id": "q-01",
+      "query": "placing incoming items into the earliest available container that has sufficient space",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "classic-first-fit-1974"
+      ],
+      "reasoning": "Direct description of the classical First Fit heuristic where items are placed into the first feasible bin."
+    },
+    {
+      "query_id": "q-02",
+      "query": "minimizing residual space by greedily selecting the bin with the tightest capacity match",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "classic-best-fit-1974"
+      ],
+      "reasoning": "Direct description of the Best Fit heuristic which minimizes remaining empty space in feasible bins."
+    },
+    {
+      "query_id": "q-03",
+      "query": "partitioning items into predefined size intervals with dedicated bins for each scale",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "harmonic-lee-1985"
+      ],
+      "reasoning": "Describes Lee and Lee (1985) Harmonic-k algorithm dividing items into (1/(k+1), 1/k] scale intervals."
+    },
+    {
+      "query_id": "q-04",
+      "query": "evolutionary algorithm maintaining an island-based program database with temperature-scaled cluster sampling",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "funsearch-database-2023"
+      ],
+      "reasoning": "Describes the programs database mechanics in FunSearch (Romera-Paredes et al. 2023)."
+    },
+    {
+      "query_id": "q-05",
+      "query": "generating algorithmic heuristics using LLMs with prompt-based mutation and crossover operators",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "eoh-2024",
+        "elm-2022"
+      ],
+      "reasoning": "Describes Evolution of Heuristics (EoH, Liu et al. 2024) and Evolution through Large Models (ELM, Lehman et al. 2022)."
+    },
+    {
+      "query_id": "q-06",
+      "query": "illuminating a solution space by dividing behavioral feature dimensions into discrete grid cells",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "mapelites-2015"
+      ],
+      "reasoning": "Describes the MAP-Elites algorithm (Mouret and Clune 2015) illuminating feature spaces via behavioral grids."
+    },
+    {
+      "query_id": "q-07",
+      "query": "only considering the most recently opened bin before opening a new one without back-tracking",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "next-fit-definition-2020"
+      ],
+      "reasoning": "Describes Next Fit, which only inspects the active bin and never returns to previously opened bins."
+    },
+    {
+      "query_id": "q-08",
+      "query": "piecewise nonlinear priority scoring function evolved for OR-library bin packing distributions",
+      "type": "answerable",
+      "relevant_record_ids": [
+        "funsearch-or-score-2023",
+        "funsearch-weibull-score-2023"
+      ],
+      "reasoning": "Describes FunSearch evolved scoring functions targeting OR and Weibull bin packing benchmarks."
+    },
+    {
+      "query_id": "q-09",
+      "query": "quantum annealing for quadratic unconstrained binary optimization in knapsack packing",
+      "type": "absent_negative",
+      "relevant_record_ids": [],
+      "reasoning": "Quantum annealing and QUBO formulations are completely absent from the 11 frozen corpus records."
+    },
+    {
+      "query_id": "q-10",
+      "query": "Sum-of-Squares bin packing algorithm balancing integer remainder classes",
+      "type": "absent_negative",
+      "relevant_record_ids": [],
+      "reasoning": "Csirik et al. (2006) Sum-of-Squares heuristic is not included in the frozen 11-record corpus."
+    },
+    {
+      "query_id": "q-11",
+      "query": "reinforcement learning policy gradient actor-critic for multi-dimensional 3D bin packing",
+      "type": "absent_negative",
+      "relevant_record_ids": [],
+      "reasoning": "3D reinforcement learning heuristics are not present in this 1D classical/LLM discovery corpus."
+    },
+    {
+      "query_id": "q-12",
+      "query": "Dual Ptashnyk linear programming relaxation lower bound calculation",
+      "type": "absent_negative",
+      "relevant_record_ids": [],
+      "reasoning": "Linear programming relaxation lower bounds are absent from the frozen records."
+    }
+  ],
+  "status": "completed_model_audit_pending_human_expert_review"
+}
+

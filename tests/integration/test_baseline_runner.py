@@ -4,7 +4,9 @@ from pathlib import Path
 
 import pytest
 
+from openend.artifacts import file_hash
 from openend.backends import Proposal
+from openend.baseline_recovery import audit_interruption
 from openend.baseline_runner import load_config, parse_response, replay, run, run_condition
 from openend.baseline_state import EohState, FunsearchState, candidate
 from openend.benchmark import evaluate, make_suite
@@ -125,3 +127,42 @@ def test_budget_preflight_no_calls_and_nontraining_rejected():
 def test_eoh_rejects_malformed_contract(text):
     with pytest.raises(ValueError):
         parse_response(text, "eoh_json")
+
+
+def test_interruption_replay_preserves_original_and_unknown_usage(tmp_path):
+    class Interrupted(Scripted):
+        def generate(self, *args):
+            if self.calls == 26:
+                raise RuntimeError("simulated interruption")
+            return super().generate(*args)
+
+    source = tmp_path / "source"
+    backend = Interrupted()
+    with pytest.raises(RuntimeError, match="simulated interruption"):
+        run(config(), backend, source, ROOT)
+    before = {p.name: file_hash(p) for p in source.iterdir()}
+    report = audit_interruption(source, tmp_path / "audit")
+    assert report["started_requests"] == 27
+    assert report["recovered_responses"] == 26
+    assert report["unknown_responses"] == 1
+    assert report["pending_actual_usage"] is None
+    assert report["pending_token_reservation"] > 0
+    assert report["model_calls"] == 0 and backend.calls == 26
+    assert before == {p.name: file_hash(p) for p in source.iterdir()}
+    lines = (source / "events.jsonl").read_text().splitlines()
+    corrupted = json.loads(lines[1])
+    corrupted["tokens_accounted"] += 1
+    lines[1] = json.dumps(corrupted)
+    (source / "events.jsonl").write_text("\n".join(lines) + "\n")
+    with pytest.raises(ValueError, match="journal replay mismatch"):
+        audit_interruption(source, tmp_path / "corrupt-audit")
+
+
+@pytest.mark.parametrize("method", ["independent", "eoh_json", "funsearch_json"])
+@pytest.mark.parametrize("expression", [0.05, ["neg", ["neg", ["neg", ["neg", ["neg", "gap"]]]]]])
+def test_baseline_rejects_evaluator_valid_but_proposal_invalid_expressions(method, expression):
+    value = {"expression": expression}
+    if method == "eoh_json":
+        value["thought"] = "Valid description does not widen the grammar."
+    with pytest.raises(ValueError, match="finite proposal grammar"):
+        parse_response(json.dumps(value), method)

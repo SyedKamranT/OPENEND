@@ -1,6 +1,10 @@
 # OPENEND hypotheses and analysis status
 
-**Status: PROVISIONAL; supersedes the previous locked hypothesis tests (2026-10-08).**
+**Status: Phase 1 program hypotheses frozen, 2026-10-15.**
+[Research lock v1](research-lock-v1.md) controls their current scope: H1/H2 guide development;
+H3 is later verifier work; H4's independent discovery claim remains untested and is not a
+progression condition; H5 is optional/inactive. The formulations below preserve the broader
+research aspirations, not claims of achieved results or a frozen confirmatory analysis.
 
 ## H1 ? Exploration (pilot diagnostic)
 

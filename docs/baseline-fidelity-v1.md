@@ -1,5 +1,10 @@
 # Pinned baseline fidelity foundations
 
+Historical foundation report. For the 2026-10-15 state and explicit deviations, see
+[fidelity audit v2](baseline-fidelity-v2.md). The earlier "no experiment" and unfinished
+runner statements below describe the time of this v1 report; the later adapter trial
+and utility runners are documented separately.
+
 2026-10-13. **Primitives and source fixtures, not completed EoH/FunSearch baselines.**
 No baseline model experiment has been run and no performance comparison is supported.
 

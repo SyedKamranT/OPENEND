@@ -1,0 +1,38 @@
+{
+  "status": "closed",
+  "date": "2026-10-15",
+  "scope": "targeted internal literature and gap assessment",
+  "validation": {
+    "method_records": 15,
+    "required_fields": "all present",
+    "local_links": "valid",
+    "bibliography_keys": "unique"
+  },
+  "files": [
+    {
+      "source": "docs/phase2-closure-v1.md",
+      "snapshot": "snapshot/docs/phase2-closure-v1.md",
+      "sha256": "78c4052e11c8a889304cdb7cac39bea3c19c2d6453245f8a9876947e819ea000"
+    },
+    {
+      "source": "docs/phase2-method-matrix-v2.md",
+      "snapshot": "snapshot/docs/phase2-method-matrix-v2.md",
+      "sha256": "fd81c07d3228c69f37949f486d45bd41380cd25253b29f74ffeb3ae7cb97ed97"
+    },
+    {
+      "source": "data/literature/phase2-evidence-v2.json",
+      "snapshot": "snapshot/data/literature/phase2-evidence-v2.json",
+      "sha256": "7e296bab29d51c703848d9e20ee36389f6f26d697fa8cd78599598737b79574d"
+    },
+    {
+      "source": "data/literature/phase2-search-log-v2.json",
+      "snapshot": "snapshot/data/literature/phase2-search-log-v2.json",
+      "sha256": "186e0320ae6b3ea38267e4ed48de932e5cd51f9e2839dcce0e53f73f8ca9839b"
+    },
+    {
+      "source": "paper/references.bib",
+      "snapshot": "snapshot/paper/references.bib",
+      "sha256": "76684c7628db0d43a82c9d1649ba21913725cf2e2bee34b10189d702a63eb3d4"
+    }
+  ]
+}

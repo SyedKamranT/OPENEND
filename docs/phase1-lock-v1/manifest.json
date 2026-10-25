@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "decision_date": "2026-10-15",
+  "phase": 1,
+  "status": "closed",
+  "scope": "internally reviewed development research specification",
+  "authorization": "Project owner explicitly accepted internal review and removed external review as a closure requirement.",
+  "evidence_class": "design decision; not independent validation or experimental confirmation",
+  "files": [
+    {
+      "source": "docs/research-lock-v1.md",
+      "snapshot": "snapshot/docs/research-lock-v1.md",
+      "sha256": "b8ea44eb229ec61021a1cfbfa73a8e09c77f5b377d826c3dacd0b2484896b0bd"
+    },
+    {
+      "source": "docs/research-question.md",
+      "snapshot": "snapshot/docs/research-question.md",
+      "sha256": "9f290335d6ec19434b1334ff79ab91ab5ae5386c869368fc28e11041972e82f9"
+    },
+    {
+      "source": "docs/phase1-closure-audit.md",
+      "snapshot": "snapshot/docs/phase1-closure-audit.md",
+      "sha256": "c444b39ba67ebf0047611119880addef76dbcbcb2f7edf38d61d517856b18062"
+    },
+    {
+      "source": "docs/hypotheses.md",
+      "snapshot": "snapshot/docs/hypotheses.md",
+      "sha256": "da0793a043eddfe6e9655f8e6d3603c8a52359f9d8f920b878918be4a2ffd4db"
+    },
+    {
+      "source": "docs/internal-technical-review-2026-10-14.md",
+      "snapshot": "snapshot/docs/internal-technical-review-2026-10-14.md",
+      "sha256": "f88baff674422a7280147350f29aa22d6697b92ec303004597255b414b907a69"
+    },
+    {
+      "source": "docs/experimental-protocol.md",
+      "snapshot": "snapshot/docs/experimental-protocol.md",
+      "sha256": "c3b3f114d5be657f0a659a01321f27ffe1ea9aa408413ee2682300780377d7d3"
+    },
+    {
+      "source": "docs/phase-progress-2026-10-14.md",
+      "snapshot": "snapshot/docs/phase-progress-2026-10-14.md",
+      "sha256": "d8578cc68a0ddbe72c1559fbb36287ceae5d83b8a83910d209957bb47915911e"
+    },
+    {
+      "source": "docs/research-log.md",
+      "snapshot": "snapshot/docs/research-log.md",
+      "sha256": "16d03663cead2051713c6bb7ea49905d0b5cd0a1e9b01734a0fd8d223cd36cca"
+    },
+    {
+      "source": "phases.md",
+      "snapshot": "snapshot/phases.md",
+      "sha256": "7b0583f1ad971d5de2b0e50ae00a587e42e901137f3bc4d3c216e962a5602cdd"
+    },
+    {
+      "source": "docs/independent-review-v1/README.md",
+      "snapshot": "snapshot/docs/independent-review-v1/README.md",
+      "sha256": "a15bfa7ec247cc5fa86d742d47dd2069bc2aeb8a14868e7d99b18158c9112624"
+    },
+    {
+      "source": "docs/utility-study-v1-draft.md",
+      "snapshot": "snapshot/docs/utility-study-v1-draft.md",
+      "sha256": "4481f40ed56755117aaad33d18747785db57fefa8cd9981d9dfea45df30a2206"
+    },
+    {
+      "source": "docs/phase1-closure-audit.pre-lock-2026-10-15.md",
+      "snapshot": "snapshot/docs/phase1-closure-audit.pre-lock-2026-10-15.md",
+      "sha256": "19fd16f4d1dccefd6d671f54e4af4f67a20cb3dd0ca17b883e7dee1d4cda10a6"
+    },
+    {
+      "source": "docs/research-question.pre-lock-2026-10-15.md",
+      "snapshot": "snapshot/docs/research-question.pre-lock-2026-10-15.md",
+      "sha256": "02cfda9021b5d5abcdb8f8b1277e049fa905d4caa5dccf4337d1b77a8cdbc786"
+    }
+  ]
+}

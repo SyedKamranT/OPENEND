@@ -1,5 +1,7 @@
 # OPENEND executable pilot protocol
 
+> **Current status — 2026-10-15:** This is the historical pilot protocol. Phase 1 is now closed under [research lock v1](research-lock-v1.md), which controls current decisions. These older settings do not authorize a new run; each later study freezes its exact configuration prospectively.
+
 **Status: PROVISIONAL / pilot v1.** No confirmatory preregistration or scientific sign-off is implied.
 
 ## Shared comparison

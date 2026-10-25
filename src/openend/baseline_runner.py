@@ -10,7 +10,7 @@ from .backends import SYSTEM_PROMPT, Proposal
 from .baseline_state import EohState, FunsearchState, candidate
 from .benchmark import evaluate, make_suite, reference_scores, successful, suite_record
 from .experiment import verify_artifacts
-from .grammar import GRAMMAR_INSTRUCTIONS, policy_schema
+from .grammar import GRAMMAR_INSTRUCTIONS, policy_schema, validate_proposal_policy
 from .local import LocalBackend
 from .policy import REFERENCES, Policy
 
@@ -127,7 +127,8 @@ def parse_response(text, method):
     thought = value.get("thought", "")
     if method == "eoh_json" and (not isinstance(thought, str) or not 1 <= len(thought) <= 400):
         raise ValueError("invalid thought")
-    return Policy.from_object({"expression": value["expression"]}), thought
+    policy = validate_proposal_policy(Policy.from_object({"expression": value["expression"]}))
+    return policy, thought
 
 
 def run_condition(config, backend, method, seed, train, journal):
@@ -251,12 +252,14 @@ def run_condition(config, backend, method, seed, train, journal):
     }
 
 
-def run(config, backend, output, root):
+def run(config, backend, output, root, protocol_path=None):
     output, root = Path(output), Path(root)
     output.mkdir(parents=True, exist_ok=False)
     write_json(output / "train.json", suite_record("train", config["per_family"]))
     (output / "protocol.md").write_bytes(
-        (root / "docs/baseline-adapters-v1-protocol.md").read_bytes()
+        (
+            Path(protocol_path) if protocol_path else root / "docs/baseline-adapters-v1-protocol.md"
+        ).read_bytes()
     )
     (output / "upstream_manifest.json").write_bytes(
         (root / "data/baselines/upstream-v1/manifest.json").read_bytes()

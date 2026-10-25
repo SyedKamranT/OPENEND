@@ -1,6 +1,16 @@
 # Literature map and contribution audit
 
-**Status: CORRECTED / IN PROGRESS (2026-10-08).** This is a targeted primary-source map, not a completed systematic review or replication. The previous unsupported 68% figure, invented titles/author groups, universal competitor-deficit claims, and implemented-feature checkmarks have been withdrawn.
+**Phase 2 CLOSED — targeted internal assessment, 2026-10-15.**
+The authoritative [closure decision](phase2-closure-v1.md), [method matrix](phase2-method-matrix-v3.md)
+and [structured evidence](../data/literature/phase2-evidence-v3.json) replace earlier progress
+criteria. The retained contribution is a bounded empirical question, not an established
+original mechanism. Exact-equivalence absence and superiority remain unproven.
+
+The historical map below is context; its old completion requirements and independent-review
+wording do not override this decision. Its original form is preserved in
+[literature-map.pre-phase2-closure-2026-10-15.md](literature-map.pre-phase2-closure-2026-10-15.md).
+
+## Historical map
 
 ## Closest methodological comparisons
 

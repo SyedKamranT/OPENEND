@@ -1,6 +1,11 @@
 # Independent review packet v1 — awaiting reviewers
 
-Prepared 2026-10-13. No reviews have been performed or attributed to anyone.
+> **Current status — 2026-10-15:** External review collection is inactive by owner instruction (2026-10-15). Phase 1 is CLOSED using the accepted [internal review](../internal-technical-review-2026-10-14.md); [research lock v1](../research-lock-v1.md) supersedes the closure requirements below. This historical packet and model audit are preserved; no independent expert approval is required for progression.
+
+Prepared 2026-10-13. One user-supplied external model audit has been received;
+no independent expert reviews have been completed. See
+[the separate validation](model-audit-gemini-v1-validation.md). The original
+`model-audit-gemini-v1.json` is preserved without rewriting its judgments.
 This packet supports the independent novelty/retrieval requirement in
 `docs/research-question.md`; an agent cannot self-certify independence.
 
@@ -55,5 +60,5 @@ completeness without changing the judgments. Disagreements require a recorded in
 adjudicator or a documented unresolved verdict. Agreement alone is not proof of correctness.
 Final labels remain pending until primary evidence and declared scope can be audited.
 
-No invitation, email or other outreach has been sent. Providing these files does not
+No invitation, email or other outreach has been sent by the authoring agent. Providing these files does not
 authorize anyone to represent model-generated judgments as independent human review.

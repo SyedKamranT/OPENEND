@@ -1,0 +1,391 @@
+{
+  "schema_version": 3,
+  "status": "closed_for_targeted_internal_phase2_assessment",
+  "review_date": "2026-10-15",
+  "scope": "Mechanism-level prior art for the frozen bounded-policy parent-selection question; not exhaustive novelty certification",
+  "records": [
+    {
+      "id": "map-elites",
+      "title": "Illuminating search spaces by mapping elites",
+      "url": "https://arxiv.org/html/1504.04909v1",
+      "version": "arXiv:1504.04909v1 (2015 identifier; HTML header date inconsistent)",
+      "sections": [
+        "Sections 3–5; Figure 2"
+      ],
+      "representation_descriptor": "User-defined feature grid",
+      "parent_selection": "Uniform occupied-archive sampling",
+      "retention": "Fill empty cell or replace with fitter occupant",
+      "evaluation_access": "Domain-specific objective evaluations",
+      "resource_accounting": "No model-token budget; domain evaluation counts are not transferable",
+      "difference_from_openend": "OPENEND changes parent weighting while retaining a grid",
+      "comparator_role": "Required matched uniform archive control",
+      "limitations": [
+        "Not reproduced; HTML date anomaly not treated as new publication"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "elm",
+      "title": "Evolution through Large Models",
+      "url": "https://arxiv.org/pdf/2206.08896",
+      "version": "PDF identifies arXiv:2206.08896v1",
+      "sections": [
+        "Sections 3.2–3.3, 4, 5.1"
+      ],
+      "representation_descriptor": "Python robot generators; morphology descriptors",
+      "parent_selection": "Random inhabited niche; LLM diff mutation",
+      "retention": "Empty cell or higher-performance champion",
+      "evaluation_access": "Sodarace simulation",
+      "resource_accounting": "Stage 1: 1,024,000 evaluations/run, 2000 batches of 512; 300M diff model",
+      "difference_from_openend": "Our bounded packing expressions and fixed-reference weights differ",
+      "comparator_role": "Foundational LLM-QD comparison",
+      "limitations": [
+        "Fine-tuning and later stages not reproduced; token equivalence unknown"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "funsearch",
+      "title": "Mathematical discoveries from program search with large language models",
+      "url": "https://www.nature.com/articles/s41586-023-06924-6",
+      "version": "Nature DOI s41586-023-06924-6; pinned implementation separately",
+      "sections": [
+        "Methods: prompt building; evolutionary method/program selection; local source audits"
+      ],
+      "representation_descriptor": "Python function skeleton; score-signature clusters in islands",
+      "parent_selection": "Uniform island; score-based cluster and length-based program sampling",
+      "retention": "Registration within islands; periodic weaker-island resets",
+      "evaluation_access": "Executable task evaluator",
+      "resource_accounting": "Paper reset every 4 hours; query/evaluation/token units differ",
+      "difference_from_openend": "JSON port changes action eligibility, prompt and objective scale",
+      "comparator_role": "Required strong baseline, explicitly labeled adaptation until native fidelity established",
+      "limitations": [
+        "No native reproduction; original model compute not matched"
+      ],
+      "code_provenance": "data/baselines/upstream-v1/manifest.json; data/baselines/evaluator-v1/manifest.json",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "eoh",
+      "title": "Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model",
+      "url": "https://arxiv.org/html/2401.02051v3",
+      "version": "arXiv:2401.02051v3; ICML metadata https://proceedings.mlr.press/v235/liu24bs.html",
+      "sections": [
+        "Sections 3.2–3.4; Figure 3; pinned source audits"
+      ],
+      "representation_descriptor": "Natural-language thought plus Python heuristic",
+      "parent_selection": "Fitness-rank weights proportional to 1/(rank+population size)",
+      "retention": "Paper retains top N; pinned code additionally deduplicates objectives",
+      "evaluation_access": "Problem-instance fitness",
+      "resource_accounting": "Paper describes five evolution operators; Figure 3 uses population 10 and 20 generations",
+      "difference_from_openend": "Pinned default activates four evolution operators; source also implements M3. JSON adapter omits M3. A default configuration difference is not a missing upstream capability.",
+      "comparator_role": "Required strong baseline; choose paper or code recipe prospectively",
+      "limitations": [
+        "Default schedule differs from five-operator paper recipe; upstream M3 implementation exists; native reproduction remains Phase 4 work"
+      ],
+      "code_provenance": "EoH v0.1 commit 4b2338fc2317c743cec50c5c7a2e4684707af973",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "alphaevolve",
+      "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+      "url": "https://arxiv.org/html/2506.13131v1",
+      "version": "arXiv:2506.13131v1",
+      "sections": [
+        "Sections 2.2–2.6"
+      ],
+      "representation_descriptor": "Code edits or rewrites; multiple evaluation scores",
+      "parent_selection": "Database resurfaces prior programs; exact probability rule not established",
+      "retention": "Database inspired by MAP-Elites and islands",
+      "evaluation_access": "User evaluator; optional cascades and model feedback",
+      "resource_accounting": "Asynchronous throughput; multiple model/evaluator costs, no matched OPENEND budget",
+      "difference_from_openend": "Full coding pipeline and ensemble exceed the current bounded comparison",
+      "comparator_role": "Architecture comparison; no native superiority claim",
+      "limitations": [
+        "Exact descriptor/grid and sampler not established from disclosed method; no reproduction"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "in-context-qd",
+      "title": "Large Language Models as In-context AI Generators for Quality-Diversity",
+      "url": "https://arxiv.org/html/2404.15794v2",
+      "version": "arXiv:2404.15794v2",
+      "sections": [
+        "Method: context/query; Experimental Setup"
+      ],
+      "representation_descriptor": "Parameter vectors with fitness and feature descriptors",
+      "parent_selection": "Uniform archive context; uniform or empty-cell-first feature queries",
+      "retention": "MAP-Elites archive admission",
+      "evaluation_access": "Black-box and robotics objectives",
+      "resource_accounting": "Batch 10, 1000 generations; Mistral-7B-v0.1",
+      "difference_from_openend": "Explicit desired-feature generation differs from fixed-reference parent weighting",
+      "comparator_role": "Required conceptual comparator if targeting is reintroduced",
+      "limitations": [
+        "Not reproduced; equivalent token costs unknown"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "aces",
+      "title": "Generating a Diversity of Challenging Programming Puzzles with Autotelic Generative Models",
+      "url": "https://papers.nips.cc/paper_files/paper/2024/file/7d0c6ff18f16797b92e77d7cc95b3c53-Paper-Conference.pdf",
+      "version": "NeurIPS 2024 proceedings",
+      "sections": [
+        "Sections 3.2–3.4; Figure 1"
+      ],
+      "representation_descriptor": "Puzzles indexed by semantic skill combinations",
+      "parent_selection": "Uniform target cell; examples from three nearest filled cells; within-cell normalized fitness softmax, temperature 0.2",
+      "retention": "Valid evaluated puzzles enter descriptor archive",
+      "evaluation_access": "Executable solutions; difficulty depends on solver",
+      "resource_accounting": "Five proposed puzzles/prompt; 50 solver attempts/puzzle plus description/label calls",
+      "difference_from_openend": "Generates tasks rather than packing policies; explicit target versus parent weights",
+      "comparator_role": "Targeting and grounded-evaluation design comparison",
+      "limitations": [
+        "No packing-equivalence claim; descriptor label hacking discussed by authors; not reproduced"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "behavesim",
+      "title": "Rethinking Code Similarity for Automated Algorithm Design with LLMs",
+      "url": "https://arxiv.org/html/2603.02787v1",
+      "version": "arXiv:2603.02787v1; venue version not substituted",
+      "sections": [
+        "Sections 3–4.1; Appendix E.1–E.2; F.1"
+      ],
+      "representation_descriptor": "Task-specific execution trajectories",
+      "parent_selection": "FunSearch intra/inter-island selection; EoH dominance-dissimilarity probabilities",
+      "retention": "Trajectory-based islands; EoH dissimilarity-based survival",
+      "evaluation_access": "Task execution and intermediate solutions",
+      "resource_accounting": "Matched evaluation budgets; FunSearch 10 islands, two examples/two proposals; EoH population 20",
+      "difference_from_openend": "Our fixed references/probes differ from live trajectory-based diversity",
+      "comparator_role": "Priority behavioral-selection comparator before broad mechanism claims",
+      "limitations": [
+        "Distance normalization and implementation not reproduced; equal tokens unestablished"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "meoh",
+      "title": "Multi-objective Evolution of Heuristic Using Large Language Model",
+      "url": "https://arxiv.org/html/2409.16867v1",
+      "version": "arXiv:2409.16867v1; AAAI 2025 primary publication https://ojs.aaai.org/index.php/AAAI/article/view/34922",
+      "sections": [
+        "Section 4; Appendix A algorithms; AAAI primary publication checked"
+      ],
+      "representation_descriptor": "Thought/code heuristics; AST dissimilarity and multiple objectives",
+      "parent_selection": "Dominance-masked dissimilarity scores converted by softmax (Appendix A)",
+      "retention": "Truncation by dominance-dissimilarity",
+      "evaluation_access": "Heuristic quality and runtime objectives",
+      "resource_accounting": "No cross-paper matched token budget established",
+      "difference_from_openend": "AST and Pareto objectives differ from fixed-reference behavioral weighting",
+      "comparator_role": "Required source comparison; multiobjective experiment only with separate protocol",
+      "limitations": [
+        "Prose probability wording less precise than appendix; not reproduced"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "lmx",
+      "title": "Language Model Crossover: Variation through Few-Shot Prompting",
+      "url": "https://www.research.autodesk.com/app/uploads/2023/12/Language-Model-Crossover.pdf",
+      "version": "Author-hosted manuscript; arXiv identity 2302.12170",
+      "sections": [
+        "Section 3; Algorithm 1"
+      ],
+      "representation_descriptor": "Text-based genotypes",
+      "parent_selection": "Random multiple parents concatenated for LLM continuation",
+      "retention": "Illustrated evolutionary loop uses fitness tournaments",
+      "evaluation_access": "Domain-dependent executable/scored objectives",
+      "resource_accounting": "Population and parent counts parameterize algorithm; no shared token budget established",
+      "difference_from_openend": "Recombination is established; our single-parent contrast tests another choice",
+      "comparator_role": "Foundational variation comparison",
+      "limitations": [
+        "Domain-specific settings not reproduced; author-hosted PDF has no immutable version in URL"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "shinkaevolve",
+      "title": "ShinkaEvolve: Towards Open-Ended And Sample-Efficient Program Evolution",
+      "url": "https://arxiv.org/html/2509.19349v1",
+      "version": "arXiv:2509.19349v1",
+      "sections": [
+        "Sections 3.1–3.2; Section 5"
+      ],
+      "representation_descriptor": "Program evolution with island database",
+      "parent_selection": "Fitness sigmoid times inverse offspring count, or rank power law",
+      "retention": "Evolutionary database; similarity rejection can filter proposals",
+      "evaluation_access": "Task evaluator with optional embedding/model novelty checks",
+      "resource_accounting": "Generator, rejection and model-routing costs; no matched token total asserted",
+      "difference_from_openend": "Usage-count novelty differs from fixed-reference behavior distance",
+      "comparator_role": "Priority usage-aware selection comparator before selection-originality claims",
+      "limitations": [
+        "Whole-system reproduction absent; archive-filter novelty is not literature novelty"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "dgm",
+      "title": "Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents",
+      "url": "https://arxiv.org/html/2505.22954v1",
+      "version": "arXiv:2505.22954v1",
+      "sections": [
+        "Appendix A.2–A.4; B.1"
+      ],
+      "representation_descriptor": "Self-modifying coding agents in archive",
+      "parent_selection": "Sigmoid performance times inverse functioning-children count",
+      "retention": "Retain valid agents able to edit codebases",
+      "evaluation_access": "Coding benchmark performance",
+      "resource_accounting": "Diagnosis, editing and benchmark model calls; not a single proposal cost",
+      "difference_from_openend": "Agent self-modification and child-count weighting differ from policy probe distances",
+      "comparator_role": "Backward-citation overlap; not a packing baseline",
+      "limitations": [
+        "No reproduction; benchmark access is not our held-out protocol"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "loreley",
+      "title": "Loreley: Repository-Scale Program Evolution with Quality-Diversity Search",
+      "url": "https://arxiv.org/html/2608.19703v1",
+      "version": "arXiv:2608.19703v1",
+      "sections": [
+        "Sections 3.1–3.4; matched study; 6.1–6.2"
+      ],
+      "representation_descriptor": "Git repositories; projected file embeddings",
+      "parent_selection": "Archive/context policies in matched study; exact sampler not reproduced",
+      "retention": "Bounded Pareto sets in cells and islands",
+      "evaluation_access": "External evaluator; fixed winner before holdout",
+      "resource_accounting": "48 jobs per policy/block; failures consume slots; seven search replicates",
+      "difference_from_openend": "Repository descriptors differ; mechanism engagement alone need not improve utility",
+      "comparator_role": "Design/evaluation comparison; retain possibility of negative results",
+      "limitations": [
+        "Reported finite-budget results not transferred to OPENEND; no reproduction"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "eps-study",
+      "title": "Understanding the Importance of Evolutionary Search in Automated Heuristic Design with Large Language Models",
+      "url": "https://arxiv.org/html/2407.10873v1",
+      "version": "arXiv:2407.10873v1",
+      "sections": [
+        "Table 3; Sections 4.1 and comparative analyses"
+      ],
+      "representation_descriptor": "Heuristics across AHD tasks",
+      "parent_selection": "Standalone generation and evolutionary-search comparisons",
+      "retention": "Depends on compared method",
+      "evaluation_access": "Common benchmark task evaluation",
+      "resource_accounting": "Table 3: 10,000 function evaluations, five runs; separate query-budget analyses",
+      "difference_from_openend": "Supports strong simple controls rather than architecture-only claims",
+      "comparator_role": "Independent generation and simple incumbent-search controls required",
+      "limitations": [
+        "Evaluation counts do not establish token parity; results not replicated"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "selected_primary_method_sections",
+      "replication_status": "not_replicated_by_this_literature_review"
+    },
+    {
+      "id": "hss-meoh",
+      "title": "HSS-MEoH: Designing Hypervolume Subset Selection Algorithms with Large Language Models",
+      "url": "https://github.com/MOL-SZU/HSS-MEoH",
+      "version": "Repository README observed 2026-10-15; no commit pin",
+      "sections": [
+        "README: NWPS; Experimental Setup"
+      ],
+      "representation_descriptor": "HSS heuristics; quality/runtime",
+      "parent_selection": "README describes fitness plus offspring-count novelty",
+      "retention": "Not implementation-audited",
+      "evaluation_access": "Hypervolume subset selection",
+      "resource_accounting": "README reports population 10, 15 generations; not verified execution",
+      "difference_from_openend": "Underused-parent selection already described; fixed-reference distinction remains",
+      "comparator_role": "Screened additional overlap lead; not an efficacy comparator",
+      "limitations": [
+        "README-only evidence; publication status, exact formula and implementation not verified"
+      ],
+      "code_provenance": "Not audited for this review",
+      "review_provenance": "internal authoring-agent review",
+      "review_date": "2026-10-15",
+      "evidence_level": "author_readme_screen_only",
+      "replication_status": "not_replicated_by_this_literature_review"
+    }
+  ],
+  "retained_question": "Does fixed-reference parent weighting improve development utility relative to matched uniform parent selection?",
+  "novelty_verdict": "Originality not established; no absence-of-equivalent claim",
+  "budget_rule": "Unknown cross-paper costs remain unknown; no fair-compute claim inferred from this matrix.",
+  "adjacent_scope": [
+    {
+      "work": "Novelty Search",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20868264/",
+      "review_level": "foundational abstract/metadata; no new implementation claim",
+      "decision": "Novelty-driven search is prior art; not a new OPENEND component"
+    },
+    {
+      "work": "Literature-Grounded Novelty Assessment of Scientific Ideas",
+      "url": "https://aclanthology.org/2025.sdp-1.9/",
+      "review_level": "primary publication page; existing literature map retained",
+      "decision": "Retrieval-based novelty assessment is prior art; verifier efficacy deferred to Phase 6"
+    },
+    {
+      "work": "AI Scientist, Nova, Co-Scientist, Robin, QDAIF, LLMatic, idea-generation and human-rating studies",
+      "review_level": "prior map retained, not revalidated here",
+      "decision": "Adjacent contextual work; no competitor-deficit or superiority claims rely on these entries"
+    }
+  ],
+  "technical_review": "docs/phase2-technical-review-2026-10-15.md"
+}

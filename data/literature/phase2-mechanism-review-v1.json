@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "scope": "Phase 2 targeted mechanism review; separate from frozen candidate novelty corpus",
+  "records": [
+    {
+      "id": "in-context-qd-2024",
+      "title": "Large Language Models as In-context AI Generators for Quality-Diversity",
+      "version": "arXiv:2404.15794v2",
+      "url": "https://arxiv.org/html/2404.15794v2",
+      "sections": [
+        "Method: Building Context",
+        "Method: Query Strategy",
+        "Experimental Setup"
+      ],
+      "evidence": "Uniformly samples archive examples; queries feature centroids using uniform or empty-cell-first strategies; generates parameter vectors with a fitness/feature prompt. Reports batch 10, 1000 generations, Mistral-7B-v0.1.",
+      "overlap": "Target-directed generation using a QD archive already exists.",
+      "difference": "OPENEND primary contrast changes parent weights relative to fixed references; it excludes explicit feature queries.",
+      "unresolved": [
+        "No reproduction performed",
+        "Token-cost equivalence not established"
+      ],
+      "role": "Required comparison for any future target-generation claim",
+      "review_date": "2026-10-15",
+      "review_provenance": "internal authoring-agent source review",
+      "review_status": "selected methods inspected; not complete full-paper audit"
+    },
+    {
+      "id": "aces-2024",
+      "title": "Generating a Diversity of Challenging Programming Puzzles with Autotelic Generative Models",
+      "version": "NeurIPS 2024 proceedings PDF",
+      "url": "https://papers.nips.cc/paper_files/paper/2024/file/7d0c6ff18f16797b92e77d7cc95b3c53-Paper-Conference.pdf",
+      "sections": [
+        "Figure 1",
+        "Section 3.1",
+        "Section 3.2"
+      ],
+      "evidence": "Generates puzzles toward semantic skill targets using archived examples; solver attempts estimate difficulty and executable checks establish successful solutions. Uses 50 solver attempts; unsolved puzzles are discarded.",
+      "overlap": "Goal-conditioned diversity plus executable evaluation is established.",
+      "difference": "OPENEND searches packing policies on fixed tasks; ACES generates tasks.",
+      "unresolved": [
+        "Detailed target sampler and appendices still need extraction",
+        "Solver-dependent difficulty is not packing utility"
+      ],
+      "role": "Target-generation and verifier-cost design comparison",
+      "review_date": "2026-10-15",
+      "review_provenance": "internal authoring-agent source review",
+      "review_status": "selected methods inspected; not complete full-paper audit"
+    },
+    {
+      "id": "behavesim-2026",
+      "title": "Rethinking Code Similarity for Automated Algorithm Design with LLMs",
+      "version": "arXiv:2603.02787v1",
+      "url": "https://arxiv.org/html/2603.02787v1",
+      "sections": [
+        "Section 4.1",
+        "Appendix E.1",
+        "Appendix E.2 Algorithms 1–2",
+        "Appendix F.1"
+      ],
+      "evidence": "Uses execution-trajectory similarity in FunSearch island assignment and cross-island selection. EoH integration uses dominance-dissimilarity parent probabilities and survival. Specifies matched evaluation budgets.",
+      "overlap": "Behavior-based selection and diversity in algorithm search are close prior art.",
+      "difference": "OPENEND uses fixed reference-policy distances on finite decision probes, with archive machinery held fixed in its primary contrast.",
+      "unresolved": [
+        "No reproduction performed",
+        "Exact distance and normalization audit remains",
+        "Evaluation budgets alone do not establish equal model-token cost"
+      ],
+      "role": "Priority close comparator; no broad behavioral-search novelty claim",
+      "review_date": "2026-10-15",
+      "review_provenance": "internal authoring-agent source review",
+      "review_status": "selected methods inspected; not complete full-paper audit"
+    }
+  ],
+  "search_log": {
+    "date": "2026-10-15",
+    "queries": [
+      "\"quality diversity\" \"large language models\" \"ELM\"",
+      "\"LLM\" \"novelty search\" \"algorithm discovery\"",
+      "\"Quality-Diversity\" \"In-context\" \"QD\" language model",
+      "\"Autotelic\" \"Code\" \"Search\" ACES arxiv",
+      "\"LLM\" \"novelty search\" algorithm discovery arxiv BehaveSim"
+    ],
+    "inclusion": "Primary sources sharing executable algorithm search, archive-guided generation, target sampling or behavioral selection. Adjacent task generation retained with domain distinction.",
+    "exclusion": "Secondary summaries used only for discovery; not evidence for technical claims.",
+    "coverage_limit": "Targeted search and selected-section review, not exhaustive or a completed systematic review.",
+    "backward_leads": [
+      "MEoH cited by BehaveSim Appendix E.2; inspect primary methods next",
+      "LMX cited by In-context QD; inspect primary methods next"
+    ],
+    "forward_search_status": "Incomplete"
+  }
+}

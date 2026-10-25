@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-15",
+  "status": "phase2_closed_with_internal_corrections_phase3_active",
+  "files": [
+    {
+      "source": "docs/phase2-technical-review-2026-10-15.md",
+      "snapshot": "snapshot/docs/phase2-technical-review-2026-10-15.md",
+      "sha256": "bca2ec5abc7e42b9ba680a65787e44a163270fb433666fbefec4badaa09c9fd5"
+    },
+    {
+      "source": "data/literature/phase2-evidence-v3.json",
+      "snapshot": "snapshot/data/literature/phase2-evidence-v3.json",
+      "sha256": "00a999a2021d4e75b7df665ccf69253c7664b4cf2ca1d9c894da17bf6a697569"
+    },
+    {
+      "source": "docs/phase2-method-matrix-v3.md",
+      "snapshot": "snapshot/docs/phase2-method-matrix-v3.md",
+      "sha256": "f61c19293b46195e3cee512c3c61f9d73ba6a102ae95456bac5d9f47b19c75ec"
+    },
+    {
+      "source": "docs/phase3-benchmark-contract-v1.md",
+      "snapshot": "snapshot/docs/phase3-benchmark-contract-v1.md",
+      "sha256": "d6e1d2bd4e578045dd406044e2129023cd81ccb72fac9d2a32e62c12c926fb27"
+    }
+  ]
+}

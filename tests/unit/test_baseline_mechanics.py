@@ -35,6 +35,11 @@ def upstream(path, name, namespace=None):
     local = ROOT / record["local_path"]
     assert file_hash(local) == record["sha256"]
     tree = ast.parse(local.read_text(encoding="utf-8"))
+    if "." in name:
+        class_name, name = name.split(".", 1)
+        tree = next(
+            node for node in tree.body if isinstance(node, ast.ClassDef) and node.name == class_name
+        )
     function = next(
         node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == name
     )

@@ -1,6 +1,323 @@
 # Research log and continuation handoff
 
-Updated: 2026-10-13. **Phase 1 remains reopened and provisional.**
+Updated: 2026-10-16. **Phase 1 CLOSED under the internally reviewed development scope.**
+
+## Current continuation: Phase 4 native environment recovery — 2026-10-16
+
+Owner requested full Phase 4 closure and authorized the best available local isolation
+environment. Selected per-user Docker Desktop with WSL2. Official installer download
+was interrupted by the reported PC crash; partial file retained and resumed, with
+published SHA-256 verification required before execution. Native code is not yet enabled. The resumed download failed its expected hash and was
+not executed; a fresh download matched the published hash and Docker Inc signature.
+Installer logs subsequently confirmed version 4.95.0 already installed successfully;
+backend startup failed: firmware virtualization disabled on AMD Ryzen 5 3600,
+`HCS_E_HYPERV_NOT_INSTALLED`. BIOS SVM/AMD-V enablement and restart are required.
+[Recovery/setup record](native-environment-setup-v1.md) records exact status. Native
+prompts now use pinned builders and have executable tests. 147 tests pass, one
+SciPy-dependent skip; numerical audit passed separately. No model calls after crash.
+
+[Acceptance review](phase4-acceptance-v1.md) retains native reproduction/containment as
+open obligations. [Numerical fidelity v4](baseline-fidelity-v4.md) records 48 probability
+and five length fixtures with actual NumPy/SciPy. A separate 72-response deterministic
+integration trial completed and replayed exactly. Live v2 stopped at 31 starts / 30
+saved responses; its prefix was verified and unresolved usage retained. No silent retry.
+
+System Python validation before container scaffolding: 143 passed, one SciPy-dependent
+skip; that audit test passed separately with bundled NumPy/SciPy. A mixed-runtime full
+suite failed due dependency/temp-directory incompatibility, not accepted as passing.
+Current container scaffolding still requires executable isolation tests and native
+search integration; do not mistake its unit flag checks for containment validation.
+
+## Historical continuation: Phase 4 decision counterexamples — 2026-10-16
+
+[Bounded decision diagnosis](phase4-decision-v1-results.md) enumerated 11,394 forced-action
+Best Fit completions across 5,760 states. Eight improvable baseline states occur in five
+streams; certified sequential hindsight uses 1471 bins versus Best Fit 1476, still above
+1461. Exact-fit counterexample recorded without promoting a rule or online success claim.
+Verified 5,856 certificates and host-action/prefix consistency. No model calls, policy
+search or evaluation/holdout access. **143 tests passed in 20.45s; Ruff clean.**
+
+Phase 4 remains open. Next: baseline numerical sampling fidelity and a separately
+predeclared bounded multistep diagnostic if pursuing coordinated-decision headroom.
+No representation expansion is justified by the current evidence alone.
+
+## Historical continuation: Phase 4 signal diagnosis and grammar enforcement
+
+Completed [84-candidate training diagnosis](phase4-signal-v1-results.md): no online
+candidate passes; both certified offline packers use 1386 bins versus Best Fit 1476.
+Offline headroom exists, but online attainability remains unresolved. Preserved the
+prospective protocol, every score/certificate and source hashes. No evaluation/test data
+or model calls. Fixed baseline parser drift from its advertised finite proposal schema;
+all baseline arms now share the utility runner's grammar enforcement.
+[Adapted baseline preparation](phase4-adapted-baseline-protocol-v2-draft.md) makes
+initialization, score feedback, reset and accounting differences explicit. Phase 4
+remains active; Phases 1–3 closure is unchanged. Next: prospectively bounded online
+state/action regret diagnosis and baseline sampling fidelity, before large comparisons.
+
+
+Validation: **141 tests passed in 32.53s; Ruff clean.** All 144 saved packing certificates and artifact hashes verified. Saved utility/block replay matched 240 + 640 attempts. No model calls.
+
+## Historical continuation: Phase 3 closed; Phase 4 preparation active
+
+[Phase 3 closure](phase3-closure-v1.md) freezes the bounded development benchmark.
+[Prospective diagnostics](phase3-diagnostics-v1-results.md) expose legacy-probe
+collisions and cell sensitivity across three stress panels. Seven fixed policies reproduce
+the historical 1,475-bin training witness versus Best Fit at 1,476; the 1% screen requires
+1,461. No tested policy passes. This is not an impossibility result for the language.
+The source, contract and evidence are frozen under `results/raw/phase3-benchmark-release-v1`;
+the tracked [release manifest](phase3-release-v1.json) records content hashes.
+
+Validation at closure: **133 tests passed in 38.09s; Ruff clean.** Saved-response replay matched all 240 utility attempts and 640 development-block attempts. No model calls were made.
+
+Next: Phase 4 baseline fidelity, containment and matched-budget protocol. Justify useful
+signal prospectively before a large model-backed comparison. Phase 1 internal acceptance
+and Phase 2 corrected literature closure stand; independent approval is not implied.
+
+## Historical continuation: Phase 2 technical corrections and Phase 3 acceptance
+
+[Internal review](phase2-technical-review-2026-10-15.md) clarifies review depth and EoH
+M3 support, and turns mechanism/probe limitations into benchmark requirements. Phase 2
+closure is retained with corrected evidence v3; all prior snapshots are unchanged.
+[Phase 3 contract](phase3-benchmark-contract-v1.md) specifies actual host, numerical,
+selection, data and descriptor semantics. Added acceptance tooling: 816 reference checks,
+five host cases and a concrete legacy-probe equivalence counterexample. No model calls.
+**130 tests passed in 41.60s; Ruff clean.** Evidence levels, links and report hash verified.
+Next: probe sensitivity, useful-gain diagnostics and consolidated benchmark release evidence.
+
+
+## Historical continuation: Phase 2 closed, Phase 3 active
+
+Completed [Phase 2 closure](phase2-closure-v1.md): fifteen method records, a rendered
+mechanism matrix, dated search/citation ledger and explicit internal claim adjudication.
+Reviewed MEoH/LMX citation leads, ACES sampler details, ShinkaEvolve/DGM usage-aware
+selection, and later repository-search evidence. HSS-MEoH remains explicitly README-level.
+The targeted review rejects broad architecture/selection originality claims and retains
+the matched empirical question. It does not certify exhaustive novelty or superiority.
+
+Phase 3 now owns benchmark-contract closure. Required follow-up comparisons and the
+EoH paper-versus-pinned-code operator difference are recorded for Phase 4. No baseline
+work was removed, no experimental outputs were changed, and the frozen novelty corpus
+was not expanded implicitly. This is a literature/documentation continuation; the earlier
+128-test result remains historical. Closure verification checks the register, references,
+local links and hashes rather than rerunning unchanged implementation tests.
+
+
+## Historical continuation: return to Phase 2 in roadmap order
+
+Owner direction: preserve useful later-phase work and proceed in the correct dependency
+order. Phase 2 is active; Phase 3 benchmark closure follows; new Phase 4 comparisons wait.
+[Mechanism/gap review v1](phase2-gap-review-v1.md) adds a structured, internally reviewed
+primary-source register, identifies two missing close methods, and deepens the BehaveSim
+comparison. It narrows defensible claims and records unresolved extraction/citation work.
+No frozen novelty corpus, code, results or Phase 1 lock changed. Documentation/data only;
+the previous 128-test result is historical and was not rerun for this review.
+
+Older entries below retain their original next-step recommendations; this entry overrides
+them. Phase 2 is not yet closed.
+
+## Newest continuation: executable native-evaluator audit
+
+[Baseline fidelity v3](baseline-fidelity-v3.md) pins three supplemental upstream source
+files and executes fifteen packing witnesses through extracted, hash-checked native
+methods. Found an action-space difference: Worst Fit on [40, 40, 20] uses one bin under
+OPENEND's host contract versus three under both native evaluators. Confirmed EoH's
+last-dataset aggregation under a two-dataset fixture and FunSearch's negative-mean scale.
+Documented prompt/scored-feedback differences and implications for a fair adapted study.
+No historical evaluator, result or Phase 1 lock was changed. No model calls ran.
+
+**128 tests passed in 31.83s; Ruff clean.** This includes all five new audit tests in the NumPy environment. The next step is a prospective
+adapted-baseline comparison protocol with explicit deviations and complete budget/failure
+accounting. Native reproduction remains a separate Phase 4 track.
+
+## Previous continuation: Phase 1 closed by explicit scope amendment
+
+The owner accepted the completed internal technical review and removed external review
+as a closure/progression requirement. [Research lock v1](research-lock-v1.md), the current
+[research specification](research-question.md), and [closure audit](phase1-closure-audit.md)
+freeze all nine canonical Phase 1 decisions. The former open audit and specification are
+archived with their original requirements intact. Independent novelty and superiority
+remain unestablished; they are not invented to close the design phase.
+
+Implementation/fidelity belongs to Phase 4, retrieval to Phase 6, and confirmatory sample
+size/inference/fresh data to Phase 13. Human review is optional/inactive. Next work is the
+native baseline evaluator/prompt audit. Entries below describe historical states and do
+not override the new lock. Documentation closure adds no model calls or experimental results.
+
+## Newest continuation: upstream baseline state fidelity and local interface repair
+
+Added [baseline fidelity audit v2](baseline-fidelity-v2.md) and three source-differential
+state tests. Hash-pinned EoH initialization/main-loop methods match the adaptation's batch
+populations through two generations with ties/failures. Hash-pinned FunSearch registration,
+signature-group storage and strict best retention match the tested fixtures. These tests
+replace model/evaluator calls with fixtures; they do not validate native generated code,
+NumPy/SciPy stochastic fidelity or full baseline efficacy.
+
+Documented the numerical-score feedback added to EoH's JSON prompts, native prompt and
+representation differences, default size/island differences, retry/reset deviations and
+remaining evaluator audit. The implementations remain explicitly labeled adaptations.
+
+Fixed a future local-inference interface error: the utility runner now supplies generation
+arguments positionally, compatible with LocalBackend's `output_format` parameter. It also
+charges and retains the local backend's `incomplete_response` status rather than treating
+it as an unknown terminal status. A dedicated local-signature fixture checks twelve such
+responses and replay. No live utility request had been launched through the incompatible
+interface, and no new inference was run in this continuation.
+
+**123 tests passed; Ruff clean.** Historical offline utility replay matched all 240 attempts;
+the block replay also matched all 640 attempts with zero new generation calls.
+Next audit native bin-packing evaluator/prompt construction and probability mechanics;
+then freeze the new model-backed baseline protocol with explicit deviations and failure rules.
+
+
+## Newest continuation: development blocks and missing-outcome sensitivity
+
+Added versioned, domain-separated development stream generation and the offline block
+runner. The [prospective protocol](development-blocks-v1-protocol.md) specified eight
+blocks, two paired seeds, twenty attempts/arm and separate training/development-evaluation
+streams. All searches finish and selected policies are saved/hashed before evaluation.
+Historical datasets remain unchanged; these new public datasets are development-only.
+
+The trial completed 640 valid attempts. All 32 arm-runs selected reference fallback and
+all eight block-mean evaluation differences were zero. The summary marks insufficient
+variation and supplies no confidence interval. No power, equivalence or novelty claim.
+See [results and limitations](development-blocks-v1-results.md). All 640 attempts replayed
+from saved responses, 29 hashes verified, **119 tests passed**; Ruff passed before the
+trial and was rechecked at completion. Preserve `results/raw/development-blocks-offline-v1`.
+
+Added feasible-packing missing-outcome bounds requiring the entire planned pair roster.
+They bound the finite-study mean without dropping failed pairs, but are not sampling
+confidence intervals and do not repair unknown usage or incomplete budgets. No provider
+calls or confirmatory holdout generation. Next: proposal/search-limit diagnostics and
+objective-matched baseline fidelity, plus robust zero-heavy inference and prospective
+failure rules. External independent review remains deferred as requested.
+
+## Newest continuation: total-bin runner integrated and replayed
+
+Implemented `openend.utility_runner`, connecting the total-bin state to training-only
+generation, admission/accounting, strict finite-grammar validation, complete state journals,
+source snapshots and whole-study replay. Legacy fitness experiments remain unchanged.
+Live provider execution is not exposed by this CLI; model-budget/identity/failure paths
+are covered with scripted backends. Exceptions preserve the started request and mark
+interruption rather than synthesizing a response.
+
+Under the [prospective offline protocol](utility-runner-v1-protocol.md), completed three
+paired seeds and 240 offline mutation attempts, all valid. All six runs selected Best Fit
+fallback at 1,476 training bins; best generated policies also tied that total. Weighting
+was active: 35/120 paired positions selected different parents, with weighted mean
+total-variation distances from uniform of 0.163, 0.186 and 0.143 across seeds. This is
+engineering evidence and a negative training utility result, not equivalence or an H4 test.
+See [the results](utility-runner-v1-results.md).
+
+Preserve `results/raw/utility-offline-v1`. All 240 events replayed exactly, five artifact
+hashes verified, **115 tests passed and Ruff was clean**. No provider calls, fresh holdout
+generation, or validation/test access. Next: independent development-block plumbing,
+objective-matched comparators, robust zero-heavy/failure-aware inference and a prospective
+model-backed protocol. Do not increase search budgets just to obtain positive results.
+
+## Newest continuation: objective alignment and Student interval development
+
+Added [utility development results](utility-development-v2-results.md). The objective audit
+recomputed an actual reversal from preserved training evidence: proposal 705 uses 1,490
+bins, while proposal 477 uses 1,491 but has higher mean ratio fitness. This confirms that
+the prospective total-bin objective needs consistent archive, prompt and selection logic;
+it is not a defect against the historical fitness-based protocol.
+
+Implemented and tested a separate `UtilityState` with consistent total-bin ranking,
+deterministic ties and strict-gain reference fallback. It is not yet wired into a live
+runner. Historical runner/replay semantics remain unchanged. Preserve
+`results/raw/objective-audit-v1`, whose report includes full expressions and source hash.
+
+Added Student-t planning for the fixed block-count grid using NIST critical values and
+ran another 40,000 synthetic studies in `results/raw/utility-planning-student-v2`. With
+eight blocks/four runs the Gaussian null coverage improved from 90.8% to 95.7%; mostly-zero
+mixtures still undercovered. No sample size or final method was chosen. No model calls
+or fresh holdout access. The source and result hashes verified.
+
+**109 tests passed; Ruff clean.** Next connect the total-bin state to a versioned budgeted
+runner with scripted/offline tests and request/state replay; extend inference calibration
+to zero-heavy and failure-dependent outcomes; complete the baseline replacement protocol
+before new inference. Independent review remains deferred without blocking development.
+
+## Newest continuation: phase audit and executable design sensitivity
+
+Reviewed all eighteen canonical phases and added [the current phase map](phase-progress-2026-10-14.md).
+Updated the top of `phases.md` so historical pilot instructions are not mistaken for the
+current execution plan. Later-phase engineering exists, but scientific closure is not
+inferred from implementation progress.
+
+Added [utility-study v1 draft](utility-study-v1-draft.md) and `openend.utility_planning`:
+paired differences are summarized within independent benchmark blocks, with explicit
+failure/duplicate/balance checks. This utility study remains separate from H4 discovery
+yield. Selection by total training bins is a proposed new rule; reconcile it with the
+existing fitness-based archive/runner before freezing or executing the study.
+
+Ran 40,000 synthetic studies across forty sensitivity scenarios, saved with source snapshot
+and hashes in `results/raw/utility-planning-v1`. No inference calls or fresh benchmark holdout
+access. The normal interval undercovers in small-block and mostly-zero cases; it is not
+approved as the final inference method. Under illustrative independent 1% pair failure,
+908/1,000 256-pair studies were incomplete, demonstrating the need for prospective failure
+rules. Scales are illustrative, not pilot-estimated; no sample size or empirical power
+claim was selected. Details and denominators are in the phase-progress document/raw report.
+
+Validation: **106 tests passed; Ruff clean; two planning artifact hashes verified.**
+Next calibrate block-level inference, extend variance/failure assumptions, audit objective
+consistency, then complete baseline fidelity and the prospective replacement trial protocol.
+External review remains deferred as requested; no need to wait for it to do this work.
+
+## Newest continuation: internal review and deferred external review
+
+The user requested continued development, with external reviews arriving later. Added
+[the internal technical review](internal-technical-review-2026-10-14.md), explicitly
+authored by the implementation agent, answering the novelty, mechanism, retrieval,
+baseline, protocol, source-privacy and review questions. It is a development decision
+record, not an independent review or a positive novelty label.
+
+Three major findings guide the next work: the implemented treatment weights distance
+from fixed references rather than measuring dynamic underexploration; the threshold
+witness's origin is not novelty ground truth; and a proposed utility study must be
+distinguished from H4's eventual validated-discovery outcome. Prepare a versioned utility
+protocol and synthetic analysis/sample-size sensitivity tools next. Exclude failed critic
+and explicit-target roles symmetrically from that narrow comparison; study them separately.
+Complete baseline fidelity and a prospective replacement protocol before new inference.
+
+External review is deferred rather than a blocker on implementation. Preserve independent
+label requirements for H4, unscored Gemini queries, all interrupted-run evidence, and the
+fresh holdout boundary. No new model calls, holdout access or scientific closure occurred
+in this documentation continuation. The last executed suite remains 103 passing tests
+and clean Ruff (2026-10-13).
+
+## Newest continuation: model review checked and interrupted trial recovered
+
+The user supplied [Gemini's external model audit](independent-review-v1/model-audit-gemini-v1.json).
+Preserved it unchanged and recorded [separate validation](independent-review-v1/model-audit-gemini-v1-validation.md):
+18 traces replayed and 25,250 feasible score states support **5/5 reference-control
+agreement**. The threshold witness remains unresolved; the maintainer key is not novelty
+ground truth, so a 6/6 novelty-accuracy claim is unsupported. Its exact simplification
+also requires the already documented floating-point caveat. Model identity and key
+disclosure timing remain user declarations. Twelve new model-authored queries remain
+unscored pending independent labels; potential relevance omissions and the OR/Weibull
+scope mismatch are flagged without rewriting the submitted judgments.
+
+The [adapter trial report](baseline-adapters-v1-results.md) preserves the interrupted
+Qwen 4B experiment: FunSearch JSON and EoH JSON each completed 24 valid responses,
+neither improved best-fit; independent generation completed five before a sixth request
+lost its response. Fifty-four started requests, 53 saved responses, 33,660 measured tokens
+plus unknown final-request usage. Offline recovery reproduced the entire saved journal
+and both completed condition records with zero model calls. Original files are unchanged;
+no request was retried. Preserve original and recovery directories named in the report.
+
+The corpus now has 11 frozen source leads. Development-only retrieval recall@3 rose from
+0.3 to 1.0 on ten same-author answerable queries; both absent queries still returned
+irrelevant hits (abstention 0/2). These results do not close independent retrieval evidence.
+The saved old/new diagnostics are `results/raw/retrieval-development-v1-corpus` and
+`results/raw/retrieval-development-v2-corpus`.
+
+Current validation: **103 tests passed; Ruff passed.** The latest authoritative closure
+checklist is [phase1-closure-audit.md](phase1-closure-audit.md). Next: obtain independent
+source-supported reviews/qrels, specify any interrupted-trial amendment, continue native
+baseline fidelity and containment work, justify the primary contrast/sample size, and
+freeze the confirmatory protocol before any fresh holdout is generated or inspected.
+No novelty, utility superiority, or Phase 1 closure is asserted.
 
 ## Newest continuation: deeper witness and baseline source fidelity
 
